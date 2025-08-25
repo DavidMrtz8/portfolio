@@ -1,0 +1,29 @@
+---
+import Logo from "./Logo.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<nav class="px-8 py-6">
+  <div class="flex justify-between items-center">
+    <Logo />
+
+    <div class="flex items-center gap-8">
+      <a
+        href="/projects"
+        class="text-primary hover:text-secondary transition-colors duration-200 font-medium"
+      >
+        {t("nav.projects")}
+      </a>
+      <a
+        href="/about"
+        class="text-primary hover:text-secondary transition-colors duration-200 font-medium"
+      >
+        {t("nav.about")}
+      </a>
+    </div>
+  </div>
+</nav>
+
