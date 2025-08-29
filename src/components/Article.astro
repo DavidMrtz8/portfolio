@@ -1,0 +1,25 @@
+---
+export interface Props {
+  id?: string;
+  class?: string;
+  title?: string;
+  children: any;
+}
+
+const { id, class: className = "", title, children } = Astro.props;
+---
+
+<article 
+  id={id} 
+  class={`bg-card rounded-lg p-6 shadow-sm border ${className}`}
+  role="article"
+>
+  {title && (
+    <header class="mb-4">
+      <h3 class="text-xl font-semibold">{title}</h3>
+    </header>
+  )}
+  <div class="prose prose-sm max-w-none">
+    {children}
+  </div>
+</article>

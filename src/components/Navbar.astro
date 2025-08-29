@@ -6,23 +6,29 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<nav class="px-8 py-6">
-  <div class="flex justify-between items-center">
-    <Logo />
+<nav role="navigation" aria-label="Main navigation">
+  <div class="container mx-auto px-4 py-4">
+    <div class="flex justify-between items-center">
+      <Logo />
 
-    <div class="flex items-center gap-8">
-      <a
-        href="/projects"
-        class="text-primary hover:text-secondary transition-colors duration-200 font-medium"
-      >
-        {t("nav.projects")}
-      </a>
-      <a
-        href="/about"
-        class="text-primary hover:text-secondary transition-colors duration-200 font-medium"
-      >
-        {t("nav.about")}
-      </a>
+      <div class="flex items-center gap-8" role="menubar">
+        <a
+          href="/projects"
+          class="text-foreground hover:text-secondary transition-colors duration-200 font-medium"
+          role="menuitem"
+          aria-label="View projects"
+        >
+          {t("nav.projects")}
+        </a>
+        <a
+          href="/about"
+          class="text-foreground hover:text-secondary transition-colors duration-200 font-medium"
+          role="menuitem"
+          aria-label="About me"
+        >
+          {t("nav.about")}
+        </a>
+      </div>
     </div>
   </div>
 </nav>

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource-variable/orbitron':
+        specifier: ^5.2.6
+        version: 5.2.6
       '@fontsource/poppins':
         specifier: ^5.2.6
         version: 5.2.6
@@ -218,6 +221,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource-variable/orbitron@5.2.6':
+    resolution: {integrity: sha512-WFoCQzrPHLyjiZjjE5esCjgLOyRHD2vHi8u0eEIezzBnNFnMe/Ws+G47crwChT26HRqfUMsOjy26byyvxcWkgw==}
 
   '@fontsource/poppins@5.2.6':
     resolution: {integrity: sha512-NFr0121+vWCfzLDVvSZOzwAjRUaNj6QHA9gtUh/KHHoWf1Qn23EkwVFs63XZ6UtF5K1b3UNmCx77YEMGgV7BOQ==}
@@ -1832,6 +1838,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.9':
     optional: true
+
+  '@fontsource-variable/orbitron@5.2.6': {}
 
   '@fontsource/poppins@5.2.6': {}
 

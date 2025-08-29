@@ -1,0 +1,39 @@
+---
+export interface Props {
+  id?: string;
+  class?: string;
+  title?: string;
+  subtitle?: string;
+  children: any;
+}
+
+const { id, class: className = "", title, subtitle, children } = Astro.props;
+---
+
+<section 
+  id={id} 
+  class={`py-16 ${className}`}
+  role="region"
+  aria-labelledby={title ? `${id}-title` : undefined}
+>
+  {(title || subtitle) && (
+    <div class="container mx-auto px-4 mb-12 text-center">
+      {title && (
+        <h2 
+          id={id ? `${id}-title` : undefined}
+          class="text-3xl font-bold mb-4"
+        >
+          {title}
+        </h2>
+      )}
+      {subtitle && (
+        <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+          {subtitle}
+        </p>
+      )}
+    </div>
+  )}
+  <div class="container mx-auto px-4">
+    {children}
+  </div>
+</section>
