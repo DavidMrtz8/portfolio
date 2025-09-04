@@ -1,0 +1,124 @@
+---
+// Importar iconos de tecnologías disponibles
+import ReactIcon from "../assets/icons/react.astro";
+import NodeIcon from "../assets/icons/node.astro";
+import DockerIcon from "../assets/icons/docker.astro";
+import ExpressIcon from "../assets/icons/express.astro";
+import CssIcon from "../assets/icons/css.astro";
+import AwsIcon from "../assets/icons/aws.astro";
+import TypeScriptIcon from "../assets/icons/typescript.astro";
+import NextIcon from "../assets/icons/next-icon.astro";
+
+// Datos de los proyectos
+const projects = [
+  {
+    title: "IOBOT",
+    description:
+      "Sistema omnicanal que centraliza la gestión de canales como WhatsApp, Instagram y Messenger, ofreciendo funcionalidades avanzadas para CRM, automatización de campañas, atención a clientes por call center y análisis de rendimiento.",
+    technologies: ["React", "Node.js", "Docker"],
+    image: "/iobot.png",
+    link: "https://app.iobot.chat",
+    github: "#",
+  },
+  {
+    title: "Portfolio Personal",
+    description:
+      "Sitio web personal desarrollado con Astro y Tailwind CSS. Diseño moderno y responsive para mostrar proyectos y habilidades técnicas.",
+    technologies: ["Astro", "Tailwind CSS", "TypeScript", "Vite"],
+    image: null,
+    link: "#",
+    github: "#",
+  },
+  {
+    title: "Wendy's Ecommerce",
+    description:
+      "Panel de control administrativo para gestión de restaurantes. Interfaz intuitiva con análisis en tiempo real y reportes automatizados.",
+    technologies: ["Vue.js", "Express", "PostgreSQL", "Redis", "AWS"],
+    image: "/wendys.png",
+    link: "#",
+    github: "#",
+  },
+
+  {
+    title: "E-commerce Platform",
+    description:
+      "Plataforma completa de comercio electrónico con sistema de pagos integrado, gestión de inventario y panel administrativo.",
+    technologies: ["Next.js", "Stripe", "Prisma", "PostgreSQL", "Vercel"],
+    image: null,
+    link: "#",
+    github: "#",
+  },
+];
+
+// Mapeo de tecnologías a iconos (usando iconos disponibles o emojis como fallback)
+const techIcons: Record<string, any> = {
+  React: ReactIcon,
+  "Node.js": NodeIcon,
+  Python: "🐍",
+  MongoDB: "🍃",
+  Docker: DockerIcon,
+  "Vue.js": "💚",
+  Express: ExpressIcon,
+  PostgreSQL: "🐘",
+  Redis: "🔴",
+  AWS: AwsIcon,
+  Astro: "✨",
+  "Tailwind CSS": CssIcon,
+  TypeScript: TypeScriptIcon,
+  Vite: "⚡",
+  "Next.js": NextIcon,
+  Stripe: "💳",
+  Prisma: "🔌",
+  Vercel: "▲",
+};
+---
+
+<section class="flex items-center justify-center p-8 container mx-auto">
+  <div class="w-full">
+    <!-- Título de la sección -->
+    <div class="text-left mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Selected Projects
+      </h2>
+    </div>
+
+    <!-- Layout minimalista con tres bloques como en la imagen -->
+    <div class="flex flex-col gap-4">
+      {
+        projects.map((project, index) => {
+          return (
+            <div class={`bg-primary rounded-lg p-6 gap-4 max-w-1/2 ${index % 2 === 0 ? "self-start" : "self-end"}`}>
+              {project.image && (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  class={`w-full h-auto object-contain rounded-lg mb-4 ${index % 2 === 0 ? "self-start" : "self-end"}`}
+                />
+              )}
+              <h3 class="text-xl font-semibold text-background-card mb-2">
+                {project.title}
+              </h3>
+              <p class="text-sm text-background-card mb-2">
+                {project.description}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {project.technologies.map((tech) => {
+                  const IconComponent = techIcons[tech];
+                  return (
+                    <span class="inline-flex items-center justify-center">
+                      {typeof IconComponent === "string" ? (
+                        <span class="text-white text-lg">{IconComponent}</span>
+                      ) : (
+                        <IconComponent class="w-9 h-9 text-white" />
+                      )}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

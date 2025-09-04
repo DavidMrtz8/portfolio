@@ -13,7 +13,7 @@ export const ui = {
     "nav.contact": "Contact",
     "header.title": "David Martinez",
     "header.subtitle": "Software Engineer & Full Stack Developer",
-    "header.description": "Who designs and builds products for web and mobile.",
+    "header.description": "Passionate about creating innovative software and building amazing user experience.",
   },
   es: {
     "nav.home": "Inicio",
