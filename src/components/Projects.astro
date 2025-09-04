@@ -73,48 +73,80 @@ const techIcons: Record<string, any> = {
 };
 ---
 
-<section class="flex items-center justify-center px-4 container mx-auto">
-  <div class="w-full">
+<section class="flex items-center justify-center px-4 sm:px-6 lg:px-8 container mx-auto py-8 sm:py-12">
+  <div class="w-full max-w-7xl">
     <!-- Título de la sección -->
-    <div class="text-left mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+    <div class="text-left mb-8 sm:mb-12 lg:mb-16">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2 sm:mb-4">
         Selected Projects
       </h2>
     </div>
 
-    <!-- Layout minimalista con tres bloques como en la imagen -->
-    <div class="flex flex-col gap-4">
+    <!-- Layout responsivo con bloques de proyectos -->
+    <div class="flex flex-col gap-4 sm:gap-6 lg:gap-8">
       {
         projects.map((project, index) => {
           return (
-            <div class={`bg-primary rounded-lg p-6 gap-4 max-w-1/2 ${index % 2 === 0 ? "self-start" : "self-end"}`}>
+            <div class={`bg-primary rounded-lg p-4 sm:p-6 lg:p-8 w-full ${
+              // En móvil: ancho completo
+              // En tablets: 85% del ancho
+              // En desktop: alternando entre izquierda y derecha
+              index % 2 === 0 
+                ? "sm:w-5/6 lg:w-3/4 xl:w-2/3 sm:self-start" 
+                : "sm:w-5/6 lg:w-3/4 xl:w-2/3 sm:self-end"
+            } transition-all duration-300 hover:shadow-lg`}>
               {project.image && (
                 <img
                   src={project.image}
                   alt={project.title}
-                  class={`w-full h-auto object-contain rounded-lg mb-4 ${index % 2 === 0 ? "self-start" : "self-end"}`}
+                  class="w-full h-auto object-cover rounded-lg mb-4 max-h-48 sm:max-h-64 lg:max-h-80"
                 />
               )}
-              <h3 class="text-xl font-semibold text-background-card mb-2">
+              <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold text-background-card mb-2 sm:mb-3">
                 {project.title}
               </h3>
-              <p class="text-sm text-background-card mb-2">
+              <p class="text-xs sm:text-sm lg:text-base text-background-card mb-3 sm:mb-4 leading-relaxed">
                 {project.description}
               </p>
-              <div class="flex flex-wrap gap-2">
+              <div class="flex flex-wrap gap-2 sm:gap-3">
                 {project.technologies.map((tech) => {
                   const IconComponent = techIcons[tech];
                   return (
-                    <span class="inline-flex items-center justify-center">
+                    <span class="inline-flex items-center justify-center p-1">
                       {typeof IconComponent === "string" ? (
-                        <span class="text-white text-lg">{IconComponent}</span>
+                        <span class="text-white text-sm sm:text-base lg:text-lg">{IconComponent}</span>
                       ) : (
-                        <IconComponent class="w-9 h-9 text-white" />
+                        <IconComponent class="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
                       )}
                     </span>
                   );
                 })}
               </div>
+              {/* Enlaces opcionales para ver proyecto y código */}
+              {(project.link !== "#" || project.github !== "#") && (
+                <div class="flex gap-3 mt-4">
+                  {project.link !== "#" && (
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="text-xs sm:text-sm text-background-card underline hover:no-underline"
+                    >
+                      Ver proyecto →
+                    </a>
+                  )}
+                  {project.github !== "#" && (
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="text-xs sm:text-sm text-background-card underline hover:no-underline"
+                    >
+                      Ver código →
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           );
         })
