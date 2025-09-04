@@ -13,4 +13,33 @@
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--color-background);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mejoras para móvil */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  /* Asegurar que las imágenes no se desborden */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Mejorar el espaciado en móvil */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Mejoras para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
 }

@@ -76,29 +76,33 @@ const techIcons: Record<string, any> = {
 <section class="flex items-center justify-center px-4 container mx-auto">
   <div class="w-full">
     <!-- Título de la sección -->
-    <div class="text-left mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+    <div class="text-left mb-8 md:mb-16">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
         Selected Projects
       </h2>
     </div>
 
-    <!-- Layout minimalista con tres bloques como en la imagen -->
-    <div class="flex flex-col gap-4">
+    <!-- Layout responsive: una columna en móvil, layout alternado en desktop -->
+    <div class="flex flex-col gap-6 md:gap-4">
       {
         projects.map((project, index) => {
           return (
-            <div class={`bg-primary rounded-lg p-6 gap-4 max-w-1/2 ${index % 2 === 0 ? "self-start" : "self-end"}`}>
+            <div class={`bg-primary rounded-lg p-4 md:p-6 gap-4 w-full md:max-w-[calc(50%-1rem)] ${
+              index % 2 === 0 
+                ? "md:self-start" 
+                : "md:self-end"
+            }`}>
               {project.image && (
                 <img
                   src={project.image}
                   alt={project.title}
-                  class={`w-full h-auto object-contain rounded-lg mb-4 ${index % 2 === 0 ? "self-start" : "self-end"}`}
+                  class="w-full h-auto object-contain rounded-lg mb-4"
                 />
               )}
-              <h3 class="text-xl font-semibold text-background-card mb-2">
+              <h3 class="text-lg md:text-xl font-semibold text-background-card mb-2">
                 {project.title}
               </h3>
-              <p class="text-sm text-background-card mb-2">
+              <p class="text-xs md:text-sm text-background-card mb-3 md:mb-2 leading-relaxed">
                 {project.description}
               </p>
               <div class="flex flex-wrap gap-2">
@@ -107,9 +111,9 @@ const techIcons: Record<string, any> = {
                   return (
                     <span class="inline-flex items-center justify-center">
                       {typeof IconComponent === "string" ? (
-                        <span class="text-white text-lg">{IconComponent}</span>
+                        <span class="text-white text-base md:text-lg">{IconComponent}</span>
                       ) : (
-                        <IconComponent class="w-9 h-9 text-white" />
+                        <IconComponent class="w-7 h-7 md:w-9 md:h-9 text-white" />
                       )}
                     </span>
                   );

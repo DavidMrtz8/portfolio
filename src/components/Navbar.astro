@@ -6,12 +6,13 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<nav role="navigation" aria-label="Main navigation">
+<nav role="navigation" aria-label="Main navigation" class="bg-background/95 backdrop-blur-sm sticky top-0 z-50">
   <div class="container mx-auto px-4 py-4">
     <div class="flex justify-between items-center">
       <Logo />
 
-      <div class="flex items-center gap-8" role="menubar">
+      <!-- Menú de escritorio -->
+      <div class="hidden md:flex items-center gap-8" role="menubar">
         <a
           href="/projects"
           class="text-foreground hover:text-secondary transition-colors duration-200 font-medium"
@@ -29,7 +30,55 @@ const t = useTranslations(lang);
           {t("nav.about")}
         </a>
       </div>
+
+      <!-- Botón de menú móvil -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden p-2 rounded-lg hover:bg-secondary/20 transition-colors duration-200"
+        aria-label="Toggle mobile menu"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-secondary/20">
+      <div class="flex flex-col gap-4 pt-4">
+        <a
+          href="/projects"
+          class="text-foreground hover:text-secondary transition-colors duration-200 font-medium py-2"
+          role="menuitem"
+          aria-label="View projects"
+        >
+          {t("nav.projects")}
+        </a>
+        <a
+          href="/about"
+          class="text-foreground hover:text-secondary transition-colors duration-200 font-medium py-2"
+          role="menuitem"
+          aria-label="About me"
+        >
+          {t("nav.about")}
+        </a>
+      </div>
     </div>
   </div>
 </nav>
+
+<script>
+  // Toggle del menú móvil
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+      mobileMenuButton.setAttribute('aria-expanded', (!isExpanded).toString());
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>
 
