@@ -9,23 +9,31 @@ import AwsIcon from "../assets/icons/aws.astro";
 import TypeScriptIcon from "../assets/icons/typescript.astro";
 import NextIcon from "../assets/icons/next-icon.astro";
 import GoogleCloudIcon from "../assets/icons/google-cloud.astro";
-
+import FlyIcon from "../assets/icons/fly.astro";
+import FirebaseIcon from "../assets/icons/firebase.astro";
+import TailwindIcon from "../assets/icons/tailwind.astro";
+import TRPCIcon from "../assets/icons/trpc.astro";
+import HonoIcon from "../assets/icons/hono.astro";
+import BunIcon from "../assets/icons/bun.astro";
+import BetterAuthIcon from "../assets/icons/better-auth.astro";
+import VercelIcon from "../assets/icons/vercel.astro";
+import AstroIcon from "../assets/icons/astro-icon.astro";
 // Datos de los proyectos
 const projects = [
   {
     title: "IOBOT",
     description:
       "Sistema omnicanal que centraliza la gestión de canales como WhatsApp, Instagram y Messenger, ofreciendo funcionalidades avanzadas para CRM, automatización de campañas, atención a clientes por call center y análisis de rendimiento.",
-    technologies: ["React", "Node.js", "Docker", "AWS", "TypeScript", "React", "Vercel", "Express", "Cloud"],
+    technologies: ["React", "Node.js", "Docker", "AWS", "TypeScript", "React", "Vercel", "Express", "Cloud", "Tailwind"],
     image: "/iobot.png",
     link: "https://app.iobot.chat",
     github: "#",
   },
   {
-    title: "Portfolio Personal",
+    title: "Embedded WhatsApp-qr API",
     description:
-      "Sitio web personal desarrollado con Astro y Tailwind CSS. Diseño moderno y responsive para mostrar proyectos y habilidades técnicas.",
-    technologies: ["Astro", "Tailwind CSS", "TypeScript", "Vite"],
+      "Servicio HTTP en Node.js/Express que gestiona sesión de WhatsApp Web, expone endpoints para enviar mensajes y sirve imágenes QR de vinculación. Genera eventos hacia un backend externo mediante solicitudes POST.",
+    technologies: ["Fly", "Docker", "Node.js", "Express"],
     image: null,
     link: "#",
     github: "#",
@@ -33,18 +41,18 @@ const projects = [
   {
     title: "Wendy's Ecommerce",
     description:
-      "Panel de control administrativo para gestión de restaurantes. Interfaz intuitiva con análisis en tiempo real y reportes automatizados.",
-    technologies: ["Vue.js", "Express", "PostgreSQL", "Redis", "AWS"],
+      "Sistema de catálogos digital que permite a los usuarios explorar el menú, personalizar productos y gestionar sus órdenes de forma rápida y sencilla, optimizando la experiencia de compra desde cualquier dispositivo.",
+    technologies: ["Next.js", "TypeScript", "Tailwind", "Firebase", "Vercel", "TRPC", "Hono", "Bun"],
     image: "/wendys.png",
     link: "#",
     github: "#",
   },
 
   {
-    title: "E-commerce Platform",
+    title: "Firebase Adapter Better Auth",
     description:
-      "Plataforma completa de comercio electrónico con sistema de pagos integrado, gestión de inventario y panel administrativo.",
-    technologies: ["Next.js", "Stripe", "Prisma", "PostgreSQL", "Vercel"],
+      "Demostracion de como usar el adaptador de Firebase para Better Auth, proporcionando autenticación completa con email y contraseña usando Firebase Realtime Database.",
+    technologies: ["Next.js", "TypeScript", "Tailwind", "Firebase", "Vercel", "Better Auth"],
     image: null,
     link: "#",
     github: "#",
@@ -55,23 +63,23 @@ const projects = [
 const techIcons: Record<string, any> = {
   React: ReactIcon,
   "Node.js": NodeIcon,
-  Python: "🐍",
-  MongoDB: "🍃",
   Docker: DockerIcon,
-  "Vue.js": "💚",
   Express: ExpressIcon,
   PostgreSQL: "🐘",
-  Redis: "🔴",
   AWS: AwsIcon,
-  Astro: "✨",
-  "Tailwind CSS": CssIcon,
+  Astro: AstroIcon,
+  "CSS": CssIcon,
   TypeScript: TypeScriptIcon,
-  Vite: "⚡",
   "Next.js": NextIcon,
-  Stripe: "💳",
-  Prisma: "🔌",
-  Vercel: "▲",
+  Vercel: VercelIcon,
   "Cloud": GoogleCloudIcon,
+  Fly: FlyIcon,
+  Firebase: FirebaseIcon,
+  Tailwind: TailwindIcon,
+  TRPC: TRPCIcon,
+  Hono: HonoIcon,
+  Bun: BunIcon,
+  "Better Auth": BetterAuthIcon,
 };
 ---
 
@@ -111,7 +119,7 @@ const techIcons: Record<string, any> = {
                 {project.technologies.map((tech) => {
                   const IconComponent = techIcons[tech];
                   return (
-                    <span class="inline-flex items-center justify-center">
+                    <span class="inline-flex items-center justify-center ">
                       {typeof IconComponent === "string" ? (
                         <span class="text-white text-base md:text-lg">{IconComponent}</span>
                       ) : (
