@@ -24,7 +24,18 @@ const projects = [
     title: "IOBOT",
     description:
       "Sistema omnicanal que centraliza la gestión de canales como WhatsApp, Instagram y Messenger, ofreciendo funcionalidades avanzadas para CRM, automatización de campañas, atención a clientes por call center y análisis de rendimiento.",
-    technologies: ["React", "Node.js", "Docker", "AWS", "TypeScript", "React", "Vercel", "Express", "Cloud", "Tailwind"],
+    technologies: [
+      "React",
+      "Node.js",
+      "Docker",
+      "AWS",
+      "TypeScript",
+      "React",
+      "Vercel",
+      "Express",
+      "Cloud",
+      "Tailwind",
+    ],
     image: "/iobot.png",
     link: "https://app.iobot.chat",
     github: "#",
@@ -35,16 +46,25 @@ const projects = [
       "Servicio HTTP en Node.js/Express que gestiona sesión de WhatsApp Web, expone endpoints para enviar mensajes y sirve imágenes QR de vinculación. Genera eventos hacia un backend externo mediante solicitudes POST.",
     technologies: ["Fly", "Docker", "Node.js", "Express"],
     image: null,
-    link: "#",
+    link: "https://github.com/DavidMrtz8/whatsApp-qr",
     github: "#",
   },
   {
     title: "Wendy's Ecommerce",
     description:
       "Sistema de catálogos digital que permite a los usuarios explorar el menú, personalizar productos y gestionar sus órdenes de forma rápida y sencilla, optimizando la experiencia de compra desde cualquier dispositivo.",
-    technologies: ["Next.js", "TypeScript", "Tailwind", "Firebase", "Vercel", "TRPC", "Hono", "Bun"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "Firebase",
+      "Vercel",
+      "TRPC",
+      "Hono",
+      "Bun",
+    ],
     image: "/wendys.png",
-    link: "#",
+    link: "https://ordenar.wendys.hn/catalogs/for-you",
     github: "#",
   },
 
@@ -52,10 +72,17 @@ const projects = [
     title: "Firebase Adapter Better Auth",
     description:
       "Demostracion de como usar el adaptador de Firebase para Better Auth, proporcionando autenticación completa con email y contraseña usando Firebase Realtime Database.",
-    technologies: ["Next.js", "TypeScript", "Tailwind", "Firebase", "Vercel", "Better Auth"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "Firebase",
+      "Vercel",
+      "Better Auth",
+    ],
     image: null,
-    link: "#",
-    github: "#",
+    link: "https://github.com/DavidMrtz8/firebase-adapter-better-auth",
+    github: "https://github.com/DavidMrtz8/firebase-adapter-better-auth",
   },
 ];
 
@@ -68,11 +95,11 @@ const techIcons: Record<string, any> = {
   PostgreSQL: "🐘",
   AWS: AwsIcon,
   Astro: AstroIcon,
-  "CSS": CssIcon,
+  CSS: CssIcon,
   TypeScript: TypeScriptIcon,
   "Next.js": NextIcon,
   Vercel: VercelIcon,
-  "Cloud": GoogleCloudIcon,
+  Cloud: GoogleCloudIcon,
   Fly: FlyIcon,
   Firebase: FirebaseIcon,
   Tailwind: TailwindIcon,
@@ -92,44 +119,47 @@ const techIcons: Record<string, any> = {
       </h2>
     </div>
 
-    <!-- Layout responsive: una columna en móvil, layout alternado en desktop -->
     <div class="flex flex-col gap-6 md:gap-4">
       {
         projects.map((project, index) => {
           return (
-            <div class={`bg-primary rounded-lg p-4 md:p-6 gap-4 w-full md:max-w-[calc(50%-1rem)] ${
-              index % 2 === 0 
-                ? "md:self-start" 
-                : "md:self-end"
-            }`}>
-              {project.image && (
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  class="w-full h-auto object-contain rounded-lg mb-4"
-                />
-              )}
-              <h3 class="text-lg md:text-xl font-semibold text-background-card mb-2">
-                {project.title}
-              </h3>
-              <p class="text-xs md:text-sm text-background-card mb-3 md:mb-2 leading-relaxed">
-                {project.description}
-              </p>
-              <div class="flex flex-wrap gap-2">
-                {project.technologies.map((tech) => {
-                  const IconComponent = techIcons[tech];
-                  return (
-                    <span class="inline-flex items-center justify-center ">
-                      {typeof IconComponent === "string" ? (
-                        <span class="text-white text-base md:text-lg">{IconComponent}</span>
-                      ) : (
-                        <IconComponent class="w-7 h-7 md:w-9 md:h-9 text-white" />
-                      )}
-                    </span>
-                  );
-                })}
-              </div>
-            </div>
+            <a
+              href={project.link}
+              target="_blank"
+              class={`bg-primary rounded-lg p-4 md:p-6 gap-4 w-full md:max-w-[calc(50%-1rem)] ${
+                index % 2 === 0 ? "md:self-start" : "md:self-end"
+              }`}
+            >
+                {project.image && (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    class="w-full h-auto object-contain rounded-lg mb-4"
+                  />
+                )}
+                <h3 class="text-lg md:text-xl font-semibold text-background-card mb-2">
+                  {project.title}
+                </h3>
+                <p class="text-xs md:text-sm text-background-card mb-3 md:mb-2 leading-relaxed">
+                  {project.description}
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => {
+                    const IconComponent = techIcons[tech];
+                    return (
+                      <span class="inline-flex items-center justify-center ">
+                        {typeof IconComponent === "string" ? (
+                          <span class="text-white text-base md:text-lg">
+                            {IconComponent}
+                          </span>
+                        ) : (
+                          <IconComponent class="w-7 h-7 md:w-9 md:h-9 text-white" />
+                        )}
+                      </span>
+                    );
+                  })}
+                </div>
+            </a>
           );
         })
       }
