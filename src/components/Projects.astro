@@ -18,6 +18,8 @@ import BunIcon from "../assets/icons/bun.astro";
 import BetterAuthIcon from "../assets/icons/better-auth.astro";
 import VercelIcon from "../assets/icons/vercel.astro";
 import AstroIcon from "../assets/icons/astro-icon.astro";
+import BranchLeftIcon from "../assets/svg/resource13.svg?url";
+import BranchRightIcon from "../assets/svg/resource12.svg?url";
 // Datos de los proyectos
 const projects = [
   {
@@ -113,10 +115,12 @@ const techIcons: Record<string, any> = {
 <section class="flex items-center justify-center px-4 container mx-auto">
   <div class="w-full">
     <!-- Título de la sección -->
-    <div class="text-left mb-8 md:mb-16">
-      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+    <div class="text-left mb-8 md:mb-16 flex items-center">
+      <img src={BranchLeftIcon} alt="branch-left" class="w-10 h-10" />
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800">
         Selected Projects
       </h2>
+      <img src={BranchRightIcon} alt="branch-right" class="w-10 h-10" />
     </div>
 
     <div class="flex flex-col gap-6 md:gap-4">
@@ -130,35 +134,35 @@ const techIcons: Record<string, any> = {
                 index % 2 === 0 ? "md:self-start" : "md:self-end"
               }`}
             >
-                {project.image && (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    class="w-full h-auto object-contain rounded-lg mb-4"
-                  />
-                )}
-                <h3 class="text-lg md:text-xl font-semibold text-background-card mb-2">
-                  {project.title}
-                </h3>
-                <p class="text-xs md:text-sm text-background-card mb-3 md:mb-2 leading-relaxed">
-                  {project.description}
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => {
-                    const IconComponent = techIcons[tech];
-                    return (
-                      <span class="inline-flex items-center justify-center ">
-                        {typeof IconComponent === "string" ? (
-                          <span class="text-white text-base md:text-lg">
-                            {IconComponent}
-                          </span>
-                        ) : (
-                          <IconComponent class="w-7 h-7 md:w-9 md:h-9 text-white" />
-                        )}
-                      </span>
-                    );
-                  })}
-                </div>
+              {project.image && (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  class="w-full h-auto object-contain rounded-lg mb-4"
+                />
+              )}
+              <h3 class="text-lg md:text-xl font-semibold text-background-card mb-2">
+                {project.title}
+              </h3>
+              <p class="text-xs md:text-sm text-background-card mb-3 md:mb-2 leading-relaxed">
+                {project.description}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {project.technologies.map((tech) => {
+                  const IconComponent = techIcons[tech];
+                  return (
+                    <span class="inline-flex items-center justify-center ">
+                      {typeof IconComponent === "string" ? (
+                        <span class="text-white text-base md:text-lg">
+                          {IconComponent}
+                        </span>
+                      ) : (
+                        <IconComponent class="w-7 h-7 md:w-9 md:h-9 text-white" />
+                      )}
+                    </span>
+                  );
+                })}
+              </div>
             </a>
           );
         })
