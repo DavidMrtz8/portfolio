@@ -3,16 +3,18 @@ import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+import resource14 from "../assets/svg/resource14.svg?url";
 ---
 
 <header class="container mx-auto px-4 py-8 pb-16 md:py-16" role="banner">
     <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
-        <div class="flex flex-col text-center md:text-left order-2 md:order-1" role="contentinfo">
+        <div class="flex flex-col text-center md:text-left order-2 md:order-1 relative" role="contentinfo">
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-1">{t("header.title")}</h1>
             <p class="text-lg md:text-xl text-muted-foreground mb-4 md:mb-0">{t("header.subtitle")}</p>
             <p class="text-base md:text-lg mt-4 md:mt-6 max-w-2xl leading-relaxed">
                 {t("header.description")}
             </p>
+            <img src={resource14} alt="resource14" class="w-44 h-16 absolute top-20 right-10" />
         </div>
         <img 
             src="/me.svg" 

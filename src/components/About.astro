@@ -1,0 +1,66 @@
+---
+import Branches from "../assets/svg/branches.svg?url";
+import Computer from "../assets/svg/computer.svg?url";
+import Mouse from "../assets/svg/mouse.svg?url";
+import Css from "../assets/svg/css.svg?url";
+import Folder from "../assets/svg/folder.svg?url";
+import Next from "../assets/svg/next.svg?url";
+import Star from "../assets/svg/star.svg?url";
+import resource2 from "../assets/svg/resource2.svg?url";
+---
+
+<section class="container mx-auto px-4 py-10 md:py-16" id="about">
+  <div class="mb-8 md:mb-12 relative">
+    <div class="flex items-center gap-4">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold inline-block">
+        About
+      </h2>
+      <div class="flex flex-col relative">
+        <h2
+          class="text-3xl md:text-4xl lg:text-5xl font-bold inline-block relative"
+        >
+          me
+        </h2>
+        <img
+          src={resource2}
+          alt="resource2"
+          class="w-16 h-10 absolute top-10"
+        />
+        <img
+          src={Next}
+          alt="next"
+          class="absolute bottom-10 left-14 w-14 md:w-16"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-4">
+    <div class="flex gap-4 items-center">
+    <div class="flex flex-col gap-4">
+      <img src={Mouse} alt="mouse" class="w-10 md:w-20 rotate-12" />
+      <img src={Star} alt="star" class="w-6 h-6 md:w- md:h-8" />
+      <img src={Computer} alt="laptop" class="w-40 md:w-56" />
+    </div>
+    <div class="space-y-6 text-foreground text-base md:text-lg leading-relaxed">
+      <p>
+        I’m a software developer at AuthCode, with experience in frontend,
+        backend, mobile development, and API services. I enjoy collaborating
+        with designers and developers to build user-friendly products that
+        create real value for businesses.
+      </p>
+      <p>
+        When I’m not online, I’m usually working on personal projects to explore
+        new ideas, or out on the field playing football to disconnect and
+        recharge.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-y-14 items-center">
+      <img src={Css} alt="css" class="w-16 md:w-28" />
+      <img src={Branches} alt="branches" class="w-8 h-8 md:w-12 md:h-12" />
+      <img src={Folder} alt="folder" class="w-16 md:w-28" />
+    </div>
+    </div>
+  </div>
+</section>
