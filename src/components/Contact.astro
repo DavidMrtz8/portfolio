@@ -1,0 +1,101 @@
+---
+// Contact component with wavy banner and contact information
+import ContactBanner from "../assets/svg/about_me.svg?url";
+import linkedin from "../assets/svg/linkedin.svg?url";
+import Github from "../assets/icons/github.astro";
+import email from "../assets/svg/email.svg?url";
+import cv from "../assets/svg/cv.svg?url";
+---
+
+<section class="relative w-full min-h-screen bg-background overflow-hidden" id="contact">
+  <!-- Wavy Orange Banner -->
+  <img src={ContactBanner} alt="Contact Banner" class="w-full h-full object-cover" />
+
+  <!-- Main Content -->
+  <div class="container mx-auto px-4 py-8 md:py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+      
+      <!-- Left Content Box -->
+      <div class="bg-secondary p-6 md:p-8 rounded-lg shadow-lg relative">
+        <!-- About Me Image -->
+        
+        <h2 class="text-2xl md:text-3xl font-bold mb-6">
+          Need a full stack developer?
+        </h2>
+        
+        <div class="space-y-4 text-base md:text-lg leading-relaxed">
+          <p>
+            I'm currently working on projects that combine scalable backend infrastructure 
+            with intuitive and performant frontend interfaces.
+          </p>
+          <p>
+            If you're looking for someone experienced in Next.js, React, Node.js, and cloud 
+            deployments, feel free to reach out at 
+            <a 
+              href="mailto:membreno.david2002@gmail.com" 
+              class="text-orange-600 hover:text-orange-700 font-medium underline"
+            >
+              membreno.david2002@gmail.com
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Section - Elsewhere -->
+      <div class="flex flex-col justify-start ml-36">
+        <h3 class="text-2xl md:text-3xl font-bold mb-6 mt-5">
+          Elsewhere
+        </h3>
+        
+        <div class="grid grid-cols-2 gap-4 md:gap-6">
+          <!-- LinkedIn -->
+          <a 
+            href="https://www.linkedin.com/in/david-daniel-membre%C3%B1o-mart%C3%ADnez-961053322?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 p-4"
+          >
+            <div class="flex items-center justify-center">
+              <img src={linkedin} alt="LinkedIn" class="w-9 h-9 text-white" />
+            </div>
+            <span class="font-medium text-lg">LinkedIn</span>
+          </a>
+
+          <!-- Email -->
+          <a 
+            href="mailto:membreno.david2002@gmail.com"
+            class="flex items-center gap-3 p-4"
+          >
+            <div class="flex items-center justify-center">
+              <img src={email} alt="Email" class="w-8 h-8 text-white" />
+            </div>
+            <span class="text-lg font-medium">E-mail</span>
+          </a>
+
+          <!-- GitHub -->
+          <a 
+            href="https://github.com/DavidMrtz8" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 p-4"
+          >
+            <Github class="w-8 h-8 text-white" />
+            <span class="text-lg font-medium">GitHub</span>
+          </a>
+
+          <!-- CV -->
+          <a 
+            href="/cv.pdf" 
+            download="David_Membreño_CV.pdf"
+            class="flex items-center gap-3 p-4"
+          >
+            <img src={cv} alt="CV" class="w-8 h-8 text-white" />
+            <span class="text-lg font-medium">Read CV</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
