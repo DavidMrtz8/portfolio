@@ -35,11 +35,40 @@ body {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  
+  /* Mejorar la legibilidad en móvil */
+  body {
+    line-height: 1.6;
+  }
+  
+  /* Asegurar que los elementos interactivos sean fáciles de tocar */
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
 
 /* Mejoras para pantallas muy pequeñas */
 @media (max-width: 480px) {
   html {
     font-size: 13px;
+  }
+  
+  /* Reducir aún más el espaciado en pantallas muy pequeñas */
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+/* Mejoras para pantallas grandes */
+@media (min-width: 1440px) {
+  html {
+    font-size: 16px;
+  }
+  
+  /* Mejorar el espaciado en pantallas grandes */
+  .container {
+    max-width: 1200px;
   }
 }
