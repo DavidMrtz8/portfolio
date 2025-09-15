@@ -111,86 +111,116 @@ const techIcons: Record<string, any> = {
 };
 ---
 
-<section class="flex items-center justify-center px-4 container mx-auto pt-8 md:pt-16" id="projects">
-  <div class="w-full">
-    <!-- Título de la sección -->
-    <div class="text-left mb-8 md:mb-16 flex items-center">
-      <img src={BranchLeftIcon} alt="branch-left" class="w-10 h-10" />
-      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800">
-        Selected Projects
-      </h2>
-      <img src={BranchRightIcon} alt="branch-right" class="w-10 h-10" />
-    </div>
+<section class="w-full" id="projects">
+  <!-- Título de la sección -->
+  <div class="text-left mb-8 md:mb-16 flex items-center justify-center px-4 container mx-auto pt-8 md:pt-16">
+    <img src={BranchLeftIcon} alt="branch-left" class="w-10 h-10" />
+    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800">
+      Selected Projects
+    </h2>
+    <img src={BranchRightIcon} alt="branch-right" class="w-10 h-10" />
+  </div>
 
-    <div class="flex flex-col gap-12 md:gap-16">
-      {
-        projects.map((project, index) => {
-          return (
-            <div class={`flex flex-col relative ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} gap-8 md:gap-12 items-center`}>
-              {/* Mockup Image */}
-              <div class="flex-1 max-w-lg z-10">
-                {project.image && (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    class="w-full h-auto object-contain"
-                  />
-                )}
-              </div>
-              
-              {/* Project Info */}
-              <div class={`flex-1 space-y-6 bg-secondary p-6 rounded-lg absolute top-0 ${index % 2 === 0 ? "right-72" : "right-80"} w-1/2 h-full`}>
-                <div>
-                  <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-                    {project.title}
-                  </h3>
-                  <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-                
-                {/* Technologies */}
-                <div class="flex flex-wrap gap-3">
-                  {project.technologies.map((tech) => {
-                    const IconComponent = techIcons[tech];
-                    return (
-                      <span class="inline-flex items-center justify-center p-2 rounded-lg">
-                        {typeof IconComponent === "string" ? (
-                          <span class="text-gray-700 text-lg">
-                            {IconComponent}
-                          </span>
-                        ) : (
-                          <IconComponent class="w-8 h-8 text-gray-700" />
-                        )}
-                      </span>
-                    );
-                  })}
-                </div>
-                
-                {/* Links */}
-                <div class="flex gap-4">
-                  {/* <a
-                    href={project.link}
-                    target="_blank"
-                    class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
-                  >
-                    Ver Proyecto
-                  </a> */}
-                  {/* {project.github !== "#" && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      class="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
-                    >
-                      Código
-                    </a>
-                  )} */}
-                </div>
-              </div>
-            </div>
-          );
-        })
-      }
+  <!-- First Project Section (IOBOT) -->
+  <div class="relative bg-gray-200 py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+        {/* Laptop Mockup */}
+        <div class="flex-1 max-w-2xl">
+          {projects[0].image && (
+            <img
+              src={projects[0].image}
+              alt={projects[0].title}
+              class="w-full h-auto object-contain"
+            />
+          )}
+        </div>
+        
+        {/* Project Info Overlay */}
+        <div class="flex-1 max-w-lg bg-white p-8 rounded-lg shadow-lg relative z-10">
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+            {projects[0].title}
+          </h3>
+          <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6">
+            {projects[0].description}
+          </p>
+          
+          {/* Technologies */}
+          <div class="flex flex-wrap gap-3">
+            {projects[0].technologies.map((tech) => {
+              const IconComponent = techIcons[tech];
+              return (
+                <span class="inline-flex items-center justify-center p-2 rounded-lg bg-gray-50">
+                  {typeof IconComponent === "string" ? (
+                    <span class="text-gray-700 text-lg">
+                      {IconComponent}
+                    </span>
+                  ) : (
+                    <IconComponent class="w-6 h-6 text-gray-700" />
+                  )}
+                </span>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Project Section (WhatsApp QR API) -->
+  <div class="relative bg-amber-50 py-16 md:py-24">
+    {/* Ver Proyecto Button */}
+    <div class="absolute top-8 left-8 z-20">
+      <a
+        href={projects[1].link}
+        target="_blank"
+        class="inline-flex items-center px-6 py-3 bg-blue-900 text-white rounded-lg hover:bg-blue-800 transition-colors font-medium shadow-lg"
+      >
+        Ver Proyecto
+      </a>
+    </div>
+    
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-16">
+        {/* Laptop Mockup */}
+        <div class="flex-1 max-w-2xl">
+          {projects[1].image && (
+            <img
+              src={projects[1].image}
+              alt={projects[1].title}
+              class="w-full h-auto object-contain"
+            />
+          )}
+        </div>
+        
+        {/* Project Info */}
+        <div class="flex-1 max-w-lg">
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+            {projects[1].title}
+          </h3>
+          <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-6">
+            {projects[1].description}
+          </p>
+          
+          {/* Technologies */}
+          <div class="flex flex-wrap gap-3">
+            {projects[1].technologies.map((tech) => {
+              const IconComponent = techIcons[tech];
+              return (
+                <span class="inline-flex items-center justify-center p-2 rounded-lg bg-white shadow-sm">
+                  {typeof IconComponent === "string" ? (
+                    <span class="text-gray-700 text-lg">
+                      {IconComponent}
+                    </span>
+                  ) : (
+                    <IconComponent class="w-6 h-6 text-gray-700" />
+                  )}
+                </span>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
