@@ -123,41 +123,41 @@ const techIcons: Record<string, any> = {
       <img src={BranchRightIcon} alt="branch-right" class="w-10 h-10" />
     </div>
 
-    <div class="flex flex-col gap-6 md:gap-4">
+    <div class="flex flex-col gap-6 lg:gap-8">
       {
         projects.map((project, index) => {
           return (
             <a
               href={project.link}
               target="_blank"
-              class={`bg-primary rounded-lg p-4 md:p-6 gap-4 w-full md:max-w-[calc(50%-1rem)] ${
-                index % 2 === 0 ? "md:self-start" : "md:self-end"
-              }`}
+              class={`bg-primary rounded-lg p-4 md:p-6 lg:p-8 w-full lg:max-w-[calc(50%-1rem)] ${
+                index % 2 === 0 ? "lg:self-start" : "lg:self-end"
+              } hover:scale-[1.02] transition-transform duration-300`}
             >
               {project.image && (
                 <img
                   src={project.image}
                   alt={project.title}
-                  class="w-full h-auto object-contain rounded-lg mb-4"
+                  class="w-full h-auto object-contain rounded-lg mb-4 max-h-48 md:max-h-64"
                 />
               )}
-              <h3 class="text-lg md:text-xl font-semibold text-background-card mb-2">
+              <h3 class="text-lg md:text-xl lg:text-2xl font-semibold text-background-card mb-2">
                 {project.title}
               </h3>
-              <p class="text-xs md:text-sm text-background-card mb-3 md:mb-2 leading-relaxed">
+              <p class="text-sm md:text-base lg:text-lg text-background-card mb-4 leading-relaxed">
                 {project.description}
               </p>
-              <div class="flex flex-wrap gap-2">
+              <div class="flex flex-wrap gap-2 md:gap-3">
                 {project.technologies.map((tech) => {
                   const IconComponent = techIcons[tech];
                   return (
-                    <span class="inline-flex items-center justify-center ">
+                    <span class="inline-flex items-center justify-center">
                       {typeof IconComponent === "string" ? (
-                        <span class="text-white text-base md:text-lg">
+                        <span class="text-white text-lg md:text-xl">
                           {IconComponent}
                         </span>
                       ) : (
-                        <IconComponent class="w-7 h-7 md:w-9 md:h-9 text-white" />
+                        <IconComponent class="w-6 h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 text-white hover:scale-110 transition-transform duration-200" />
                       )}
                     </span>
                   );

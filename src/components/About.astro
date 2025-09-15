@@ -35,32 +35,31 @@ import resource2 from "../assets/svg/resource2.svg?url";
     </div>
   </div>
 
-  <div class="flex flex-col gap-4">
-    <div class="flex gap-4 items-center">
-    <div class="flex flex-col gap-4">
-      <img src={Mouse} alt="mouse" class="w-10 md:w-20 rotate-12" />
-      <img src={Star} alt="star" class="w-6 h-6 md:w- md:h-8" />
-      <img src={Computer} alt="laptop" class="w-40 md:w-56" />
+  <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+    <div class="flex flex-col sm:flex-row lg:flex-col gap-4 lg:gap-6 order-2 lg:order-1">
+      <img src={Mouse} alt="mouse" class="w-12 md:w-16 lg:w-20 rotate-12" />
+      <img src={Star} alt="star" class="w-6 h-6 md:w-8 md:h-8" />
+      <img src={Computer} alt="laptop" class="w-32 md:w-48 lg:w-56" />
     </div>
-    <div class="space-y-6 text-foreground text-base md:text-lg leading-relaxed">
+    
+    <div class="space-y-4 md:space-y-6 text-foreground text-base md:text-lg lg:text-xl leading-relaxed order-3 lg:order-2 flex-1">
       <p>
-        I’m a software developer at AuthCode, with experience in frontend,
+        I'm a software developer at AuthCode, with experience in frontend,
         backend, mobile development, and API services. I enjoy collaborating
         with designers and developers to build user-friendly products that
         create real value for businesses.
       </p>
       <p>
-        When I’m not online, I’m usually working on personal projects to explore
+        When I'm not online, I'm usually working on personal projects to explore
         new ideas, or out on the field playing football to disconnect and
         recharge.
       </p>
     </div>
 
-    <div class="flex flex-col gap-y-14 items-center">
-      <img src={Css} alt="css" class="w-16 md:w-28" />
-      <img src={Branches} alt="branches" class="w-8 h-8 md:w-12 md:h-12" />
-      <img src={Folder} alt="folder" class="w-16 md:w-28" />
-    </div>
+    <div class="flex flex-row lg:flex-col gap-6 lg:gap-14 items-center order-1 lg:order-3">
+      <img src={Css} alt="css" class="w-16 md:w-20 lg:w-28" />
+      <img src={Branches} alt="branches" class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
+      <img src={Folder} alt="folder" class="w-16 md:w-20 lg:w-28" />
     </div>
   </div>
 </section>
