@@ -1,5 +1,5 @@
 ---
-// Importar iconos de tecnologías disponibles
+// Import available technology icons
 import ReactIcon from "../assets/icons/react.astro";
 import NodeIcon from "../assets/icons/node.astro";
 import DockerIcon from "../assets/icons/docker.astro";
@@ -20,12 +20,12 @@ import VercelIcon from "../assets/icons/vercel.astro";
 import AstroIcon from "../assets/icons/astro-icon.astro";
 import BranchLeftIcon from "../assets/svg/resource13.svg?url";
 import BranchRightIcon from "../assets/svg/resource12.svg?url";
-// Datos de los proyectos
+// Project data
 const projects = [
   {
     title: "IOBOT",
     description:
-      "Sistema omnicanal que centraliza la gestión de canales como WhatsApp, Instagram y Messenger, ofreciendo funcionalidades avanzadas para CRM, automatización de campañas, atención a clientes por call center y análisis de rendimiento.",
+      "Omnichannel platform that centralizes the management of channels like WhatsApp, Instagram, and Messenger, offering advanced features for CRM, campaign automation, call center customer support, and performance analytics.",
     technologies: [
       "React",
       "Node.js",
@@ -44,7 +44,7 @@ const projects = [
   {
     title: "Embedded WhatsApp-QR API",
     description:
-      "Servicio HTTP en Node.js/Express que gestiona sesión de WhatsApp Web, expone endpoints para enviar mensajes y sirve imágenes QR de vinculación. Genera eventos hacia un backend externo mediante solicitudes POST.",
+      "HTTP service built with Node.js/Express that manages a WhatsApp Web session, exposes endpoints to send messages, and serves pairing QR images. Emits events to an external backend via POST requests.",
     technologies: ["Fly", "Docker", "Node.js", "Express"],
     image: "/mockup_qr.png",
     link: "https://github.com/DavidMrtz8/whatsApp-qr",
@@ -53,7 +53,7 @@ const projects = [
   {
     title: "Wendy's Ecommerce",
     description:
-      "Sistema de catálogos digital que permite a los usuarios explorar el menú, personalizar productos y gestionar sus órdenes de forma rápida y sencilla, optimizando la experiencia de compra desde cualquier dispositivo.",
+      "Digital catalog system that lets users browse the menu, customize items, and manage their orders quickly and easily, optimizing the shopping experience on any device.",
     technologies: [
       "Next.js",
       "TypeScript",
@@ -72,7 +72,7 @@ const projects = [
   {
     title: "Firebase Adapter Better Auth",
     description:
-      "Demostracion de como usar el adaptador de Firebase para Better Auth, proporcionando autenticación completa con email y contraseña usando Firebase Realtime Database.",
+      "Demonstration of how to use the Firebase adapter for Better Auth, providing full email-and-password authentication using Firebase Realtime Database.",
     technologies: [
       "Next.js",
       "TypeScript",
@@ -87,7 +87,7 @@ const projects = [
   },
 ];
 
-// Mapeo de tecnologías a iconos (usando iconos disponibles o emojis como fallback)
+// Map technologies to icons (use available icons or emoji as fallback)
 const techIcons: Record<string, any> = {
   React: ReactIcon,
   "Node.js": NodeIcon,
@@ -113,7 +113,7 @@ const techIcons: Record<string, any> = {
 
 <section class="flex items-center justify-center px-4 container mx-auto pt-8 md:pt-16" id="projects">
   <div class="w-full">
-    <!-- Título de la sección -->
+    <!-- Section title -->
     <div class="text-left mb-8 md:mb-16 flex items-center">
       <img src={BranchLeftIcon} alt="branch-left" class="w-10 h-10" />
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800">
@@ -174,7 +174,7 @@ const techIcons: Record<string, any> = {
                     target="_blank"
                     class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
                   >
-                    Ver Proyecto
+                    View Project
                   </a>
                 </div>
               </div>
