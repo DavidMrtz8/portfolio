@@ -17,6 +17,10 @@
           "value": "DENY"
         },
         {
+          "key": "X-XSS-Protection",
+          "value": "0"
+        },
+        {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
         },
