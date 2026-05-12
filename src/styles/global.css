@@ -8,6 +8,7 @@
   --ink-soft: #4a4a4a;
   --ink-muted: #8a8478;
   --accent: #e8632a;
+  --accent-ink: #b9450f;
   --accent-soft: #f5a378;
   --line: #1a1a1a;
   --card: #ddd2bd;
@@ -151,7 +152,7 @@ nav {
   position: absolute;
   top: -25px;
   right: 20px;
-  background: var(--accent);
+  background: var(--accent-ink);
   color: var(--paper);
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
@@ -220,7 +221,7 @@ nav {
 }
 .hero h1 em {
   font-style: italic;
-  color: var(--accent);
+  color: var(--accent-ink);
   font-weight: 400;
 }
 .hero h1 .underline {
@@ -837,9 +838,10 @@ nav {
   position: relative;
   z-index: 1;
 }
-.stack-group h5 {
+.stack-group h3 {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--accent-soft);
@@ -941,7 +943,7 @@ nav {
   margin-left: auto;
   margin-right: auto;
 }
-.cta-final h2 em { font-style: italic; color: var(--accent); }
+.cta-final h2 em { font-style: italic; color: var(--accent-ink); }
 .cta-final p {
   font-size: 18px;
   color: var(--ink-soft);
@@ -1047,7 +1049,7 @@ footer {
   flex-wrap: wrap;
   gap: 20px;
   font-size: 14px;
-  color: var(--ink-muted);
+  color: var(--ink-soft);
   position: relative;
   z-index: 1;
 }
