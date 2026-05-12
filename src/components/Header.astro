@@ -1,27 +1,71 @@
 ---
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import resource2 from "../assets/svg/resource2.svg?url";
+import star from "../assets/svg/star.svg?url";
+import next from "../assets/svg/next.svg?url";
+import computer from "../assets/svg/computer.svg?url";
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-import resource14 from "../assets/svg/resource14.svg?url";
+const me = "/me.svg"; // Public asset
 ---
 
-<header class="container mx-auto px-4 pt-8 md:pt-16" role="banner">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
-        <div class="flex flex-col text-center md:text-left order-2 md:order-1 relative" role="contentinfo">
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-1">{t("header.title")}</h1>
-            <p class="text-lg md:text-xl text-muted-foreground mb-4 md:mb-0">{t("header.subtitle")}</p>
-            <p class="text-base md:text-lg mt-4 md:mt-6 max-w-2xl leading-relaxed">
-                {t("header.description")}
-            </p>
-            <img src={resource14} alt="resource14" class="w-32 h-12 md:w-44 md:h-16 absolute top-24 md:top-20 right-4 md:right-10" />
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-tag">Available for new projects</div>
+        <h1>
+          Backend engineer<br>
+          who builds systems<br>
+          that <em>don't break</em> <span class="underline">in production.</span>
+        </h1>
+        <p class="hero-sub">
+          I help SaaS teams ship reliable distributed backends. NestJS, TypeScript, AWS,
+          event-driven architectures.
+        </p>
+        <div class="hero-cta-row">
+          <a href="https://cal.com/davidmrtz/20-min-call" target="_blank" class="btn-primary">Book a free 20-min call →</a>
+          <a href="#projects" class="btn-secondary">
+            See selected work
+          </a>
         </div>
-        <img 
-            src="/me.svg" 
-            alt="David Martz - Software Engineer" 
-            class="w-48 md:w-64 lg:w-xl object-contain order-1 md:order-2" 
-            role="img"
-            aria-label="David Martz portrait"
-        />
+      </div>
+      <div class="hero-portrait">
+        <div class="hero-portrait-badge">Hola, soy David</div>
+          <img src={me} alt="David Martínez">
+      </div>
     </div>
-</header>
+
+
+    <div class="hero-stats">
+      <div class="stat stat-circled">
+        <div class="stat-num"><em>99.9%</em></div>
+        <div class="stat-label">Event delivery reliability shipped to production</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">−<em>40%</em></div>
+        <div class="stat-label">Order processing failures eliminated</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">−<em>50%</em></div>
+        <div class="stat-label">Incident resolution time reduced</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num"><em>4+</em></div>
+        <div class="stat-label">Years building distributed systems</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero h1 .underline::after {
+    content: '';
+    position: absolute;
+    bottom: -0.18em;
+    left: -0.05em;
+    right: -0.05em;
+    height: 0.36em;
+    background: url('../assets/svg/resource2.svg') center/100% 100% no-repeat;
+    filter: brightness(0) saturate(100%) invert(45%) sepia(85%) saturate(2000%) hue-rotate(355deg) brightness(95%) contrast(95%);
+    z-index: -1;
+  }
+</style>

@@ -1,0 +1,81 @@
+---
+import star from "../assets/svg/star.svg?url";
+import folder from "../assets/svg/folder.svg?url";
+import branches from "../assets/svg/branches.svg?url";
+import mouse from "../assets/svg/mouse.svg?url";
+---
+
+<section class="section" id="services">
+  <div class="container services-wrap">
+    <div class="section-label">
+      <span class="label-star" style={`-webkit-mask-image: url(${star}); mask-image: url(${star});`}></span>
+      [ 01 ] What I do
+    </div>
+    <h2 class="section-title">Three things I do <em>better</em> than most.</h2>
+
+    <div class="services-grid">
+      <div class="service">
+        <div class="service-num">01 / SERVICE</div>
+        <div class="service-icon"><img src={folder} alt="Backend APIs"></div>
+        <h3 class="service-title">Backend APIs that scale</h3>
+        <p class="service-desc">
+          Production-grade REST and GraphQL APIs with NestJS and Node.js. Multi-tenant,
+          well-tested, observable. The kind of code your team can build on for years.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">NestJS</span>
+          <span class="service-tag">TypeScript</span>
+          <span class="service-tag">PostgreSQL</span>
+          <span class="service-tag">GraphQL</span>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-num">02 / SERVICE</div>
+        <div class="service-icon"><img src={branches} alt="Event-driven architecture"></div>
+        <h3 class="service-title">Event-driven architecture</h3>
+        <p class="service-desc">
+          Async workflows, the Outbox Pattern, idempotency, retries that actually retry.
+          For when "send and pray" stops being good enough for your business.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">AWS SQS</span>
+          <span class="service-tag">Outbox Pattern</span>
+          <span class="service-tag">Redis</span>
+          <span class="service-tag">Lambda</span>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-num">03 / SERVICE</div>
+        <div class="service-icon"><img src={mouse} alt="Production firefighting"></div>
+        <h3 class="service-title">Production firefighting</h3>
+        <p class="service-desc">
+          Race conditions, duplicate records, jobs failing silently, slow queries. I diagnose
+          the bugs nobody on your team has time to fix — and add the observability to catch
+          the next one.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">OpenTelemetry</span>
+          <span class="service-tag">Postgres tuning</span>
+          <span class="service-tag">Distributed tracing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .label-star {
+    width: 14px;
+    height: 18px;
+    background-color: var(--accent);
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    display: block;
+  }
+</style>

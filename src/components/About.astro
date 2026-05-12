@@ -1,65 +1,99 @@
 ---
-import Branches from "../assets/svg/branches.svg?url";
-import Computer from "../assets/svg/computer.svg?url";
-import Mouse from "../assets/svg/mouse.svg?url";
-import Css from "../assets/svg/css.svg?url";
-import Folder from "../assets/svg/folder.svg?url";
-import Next from "../assets/svg/next.svg?url";
-import Star from "../assets/svg/star.svg?url";
-import resource2 from "../assets/svg/resource2.svg?url";
+import star from "../assets/svg/star.svg?url";
+import resource12 from "../assets/svg/resource12.svg?url";
+import mouse from "../assets/svg/mouse.svg?url";
+import css from "../assets/svg/css.svg?url";
+import next from "../assets/svg/next.svg?url";
+
+const stack = [
+  {
+    group: "// Languages & Runtime",
+    items: ["TypeScript", "Node.js", "JavaScript"],
+    doodle: { icon: css, text: "CSS / Frontend" }
+  },
+  {
+    group: "// Backend & APIs",
+    items: ["NestJS", "Express", "GraphQL", "REST", "TypeORM"],
+    doodle: { icon: next, text: "Next.js" }
+  },
+  {
+    group: "// Data & Infra",
+    items: ["PostgreSQL", "Redis", "AWS (SQS, S3, RDS, Lambda)", "Docker"]
+  },
+  {
+    group: "// Architecture",
+    items: ["Event-driven", "Microservices", "Outbox Pattern", "Multi-tenant"]
+  },
+  {
+    group: "// Observability & Testing",
+    items: ["OpenTelemetry", "Pino", "Jest"]
+  }
+];
 ---
 
-<section class="container mx-auto px-4 py-10 md:py-16" id="about">
-  <div class="mb-8 md:mb-12 relative">
-    <div class="flex items-center gap-4">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold inline-block">
-        About
-      </h2>
-      <div class="flex flex-col relative">
-        <h2
-          class="text-3xl md:text-4xl lg:text-5xl font-bold inline-block relative"
-        >
-          me
-        </h2>
-        <img
-          src={resource2}
-          alt="resource2"
-          class="w-16 h-10 absolute top-10"
-        />
-        <img
-          src={Next}
-          alt="next"
-          class="absolute bottom-10 left-14 w-14 md:w-16"
-        />
+<section class="about-wrap" id="about">
+  <img src={resource12} class="doodle about-deco-curl" alt="">
+  <img src={mouse} class="doodle about-deco-mouse" alt="">
+
+  <div class="container">
+    <div class="section-label">
+      <span class="label-star" style={`-webkit-mask-image: url(${star}); mask-image: url(${star});`}></span>
+      [ 03 ] About
+    </div>
+    <h2 class="section-title">A backend engineer who <em>cares</em> what happens after deploy.</h2>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm <strong>David Martínez</strong>, a backend engineer based in Honduras with 4+ years
+          shipping distributed systems to production. My focus is the unsexy stuff that decides
+          whether a SaaS survives its first 1000 customers: <strong>reliability, idempotency,
+          observability, and graceful failure</strong>.
+        </p>
+        <p>
+          I prefer working in <strong>small, testable increments</strong>, writing code that the
+          next engineer can debug at 2am, and being honest when a problem needs more than a quick
+          fix. I communicate clearly in English, ask the questions nobody else is asking, and ship.
+        </p>
+        <p>
+          When I'm offline I'm usually on a football field. <strong>Available 20–30 hrs/week</strong>
+          for the right project. Based in CST, comfortable with US and EU timezones.
+        </p>
+      </div>
+
+      <div class="stack-list">
+        {stack.map(group => (
+          <div class="stack-group">
+            <h5>{group.group}</h5>
+            <div class="stack-items">
+              {group.items.map(item => (
+                <span class="stack-item">{item}</span>
+              ))}
+              {group.doodle && (
+                <span class="stack-chip-doodle">
+                  <img src={group.doodle.icon} alt="">
+                  {group.doodle.text}
+                </span>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </div>
-
-  <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
-    <div class="flex flex-col sm:flex-row lg:flex-col gap-4 lg:gap-6 order-2 lg:order-1">
-      <img src={Mouse} alt="mouse" class="w-12 md:w-16 lg:w-20 rotate-12" />
-      <img src={Star} alt="star" class="w-6 h-6 md:w-8 md:h-8" />
-      <img src={Computer} alt="laptop" class="w-32 md:w-48 lg:w-56" />
-    </div>
-    
-    <div class="space-y-4 md:space-y-6 text-foreground text-base md:text-lg lg:text-xl leading-relaxed order-3 lg:order-2 flex-1">
-      <p>
-        I'm a software developer at AuthCode, with experience in frontend,
-        backend, mobile development, and API services. I enjoy collaborating
-        with designers and developers to build user-friendly products that
-        create real value for businesses.
-      </p>
-      <p>
-        When I'm not online, I'm usually working on personal projects to explore
-        new ideas, or out on the field playing football to disconnect and
-        recharge.
-      </p>
-    </div>
-
-    <div class="flex flex-row lg:flex-col gap-6 lg:gap-14 items-center order-1 lg:order-3">
-      <img src={Css} alt="css" class="w-16 md:w-20 lg:w-28" />
-      <img src={Branches} alt="branches" class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
-      <img src={Folder} alt="folder" class="w-16 md:w-20 lg:w-28" />
-    </div>
-  </div>
 </section>
+
+<style>
+  .label-star {
+    width: 14px;
+    height: 18px;
+    background-color: var(--accent-soft);
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    display: block;
+  }
+</style>

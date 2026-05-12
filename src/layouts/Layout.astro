@@ -1,9 +1,6 @@
 ---
-import Navbar from "../components/Navbar.astro";
-import "@fontsource/poppins"
-import "@fontsource-variable/orbitron"
 import "../styles/global.css";
-import Header from "../components/Header.astro";
+import Navbar from "../components/Navbar.astro";
 ---
 
 <!doctype html>
@@ -13,13 +10,29 @@ import Header from "../components/Header.astro";
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="David Martz - Software Engineer Portfolio" />
-		<title>DavidMrtz Portfolio</title>
+		<meta name="description" content="David Martínez — Backend Engineer Portfolio" />
+		<title>David Martínez — Backend Engineer</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300..800;9..144,1,300..800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 	</head>
-	<body class="min-h-screen flex flex-col">
+	<body>
 		<Navbar />
-		<Header />
 		<slot />
+		
+		<script>
+			// Reveal on scroll
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) entry.target.classList.add('visible');
+				});
+			}, { threshold: 0.1 });
+
+			document.querySelectorAll('.section, .case-study, .hero-stats > div, .contact-card').forEach(el => {
+				el.classList.add('reveal');
+				observer.observe(el);
+			});
+		</script>
 	</body>
 </html>
 

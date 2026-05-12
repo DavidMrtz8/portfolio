@@ -1,187 +1,174 @@
 ---
-// Import available technology icons
-import ReactIcon from "../assets/icons/react.astro";
-import NodeIcon from "../assets/icons/node.astro";
-import DockerIcon from "../assets/icons/docker.astro";
-import ExpressIcon from "../assets/icons/express.astro";
-import CssIcon from "../assets/icons/css.astro";
-import AwsIcon from "../assets/icons/aws.astro";
-import TypeScriptIcon from "../assets/icons/typescript.astro";
-import NextIcon from "../assets/icons/next-icon.astro";
-import GoogleCloudIcon from "../assets/icons/google-cloud.astro";
-import FlyIcon from "../assets/icons/fly.astro";
-import FirebaseIcon from "../assets/icons/firebase.astro";
-import TailwindIcon from "../assets/icons/tailwind.astro";
-import TRPCIcon from "../assets/icons/trpc.astro";
-import HonoIcon from "../assets/icons/hono.astro";
-import BunIcon from "../assets/icons/bun.astro";
-import BetterAuthIcon from "../assets/icons/better-auth.astro";
-import VercelIcon from "../assets/icons/vercel.astro";
-import AstroIcon from "../assets/icons/astro-icon.astro";
-import BranchLeftIcon from "../assets/svg/resource13.svg?url";
-import BranchRightIcon from "../assets/svg/resource12.svg?url";
-// Project data
+import star from "../assets/svg/star.svg?url";
+import folder from "../assets/svg/folder.svg?url";
+import resource4 from "../assets/svg/resource4.svg?url";
+import resource5 from "../assets/svg/resource5.svg?url";
+import resource13 from "../assets/svg/resource13.svg?url";
+
 const projects = [
   {
-    title: "IOBOT",
-    description:
-      "Omnichannel platform that centralizes the management of channels like WhatsApp, Instagram, and Messenger, offering advanced features for CRM, campaign automation, call center customer support, and performance analytics.",
-    technologies: [
-      "React",
-      "Node.js",
-      "Docker",
-      "AWS",
-      "TypeScript",
-      "Vercel",
-      "Express",
-      "Cloud",
-      "Tailwind",
+    case: "01",
+    year: "2025",
+    title: "Distributed Notification System with the Outbox Pattern",
+    context: "Multi-tenant SaaS · GraphxSource",
+    problem: "Critical events were being lost in transit. Silent failures, no traceability, customers complaining.",
+    built: "Outbox Pattern with async dispatcher, transactional persistence, retries with exponential backoff, and distributed tracing.",
+    results: [
+      { num: "99.9%", label: "Event delivery reliability" },
+      { num: "0", label: "Silent failures in critical flows" }
     ],
-    image: "/mockup_iobot.png",
-    link: "https://app.iobot.chat",
-    github: "#",
+    stack: ["NestJS", "PostgreSQL", "AWS SQS", "Outbox Pattern"],
+    mockupType: "outbox",
+    url: "outbox-dispatcher · live"
   },
   {
-    title: "Embedded WhatsApp-QR API",
-    description:
-      "HTTP service built with Node.js/Express that manages a WhatsApp Web session, exposes endpoints to send messages, and serves pairing QR images. Emits events to an external backend via POST requests.",
-    technologies: ["Fly", "Docker", "Node.js", "Express"],
-    image: "/mockup_qr.png",
-    link: "https://github.com/DavidMrtz8/whatsApp-qr",
-    github: "#",
+    case: "02",
+    year: "2025",
+    title: "Fault-Tolerant Order Processing",
+    context: "High-volume transactional system · GraphxSource",
+    problem: "Orders failing on transient errors. Race conditions. Engineers manually reprocessing every week.",
+    built: "Retry system with idempotency, partial indexes, pessimistic locking, and server-side billing validation.",
+    results: [
+      { num: "−40%", label: "Order processing failures" },
+      { num: "~0", label: "Duplicate records or corruption" }
+    ],
+    stack: ["TypeScript", "PostgreSQL", "Idempotency", "Locking"],
+    mockupType: "terminal",
+    url: "$ node order-worker.ts"
   },
   {
-    title: "Wendy's Ecommerce",
-    description:
-      "Digital catalog system that lets users browse the menu, customize items, and manage their orders quickly and easily, optimizing the shopping experience on any device.",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind",
-      "Firebase",
-      "Vercel",
-      "TRPC",
-      "Hono",
-      "Bun",
+    case: "03",
+    year: "2024",
+    title: "iOBOT — Omnichannel CRM Backend",
+    context: "B2B SaaS · Authcode",
+    problem: "Unify WhatsApp, Instagram and Messenger into a single CRM pipeline, real-time, at scale.",
+    built: "Event-driven workflows on AWS, Socket.io for real-time, plus an OpenAI chatbot layer for repetitive flows.",
+    results: [
+      { num: "3 channels", label: "Unified backend pipeline" },
+      { num: "Real-time", label: "Delivery across integrations" }
     ],
-    image: "/wendys.png",
-    link: "https://ordenar.wendys.hn/catalogs/for-you",
-    github: "#",
-  },
-
-  {
-    title: "Firebase Adapter Better Auth",
-    description:
-      "Demonstration of how to use the Firebase adapter for Better Auth, providing full email-and-password authentication using Firebase Realtime Database.",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind",
-      "Firebase",
-      "Vercel",
-      "Better Auth",
-    ],
-    image: "/mockup_firebase_auth.png",
-    link: "https://github.com/DavidMrtz8/firebase-adapter-better-auth",
-    github: "https://github.com/DavidMrtz8/firebase-adapter-better-auth",
-  },
+    stack: ["Node.js", "AWS SQS", "Socket.io", "OpenAI API"],
+    mockupType: "chat",
+    url: "iOBOT inbox · unified"
+  }
 ];
-
-// Map technologies to icons (use available icons or emoji as fallback)
-const techIcons: Record<string, any> = {
-  React: ReactIcon,
-  "Node.js": NodeIcon,
-  Docker: DockerIcon,
-  Express: ExpressIcon,
-  PostgreSQL: "🐘",
-  AWS: AwsIcon,
-  Astro: AstroIcon,
-  CSS: CssIcon,
-  TypeScript: TypeScriptIcon,
-  "Next.js": NextIcon,
-  Vercel: VercelIcon,
-  Cloud: GoogleCloudIcon,
-  Fly: FlyIcon,
-  Firebase: FirebaseIcon,
-  Tailwind: TailwindIcon,
-  TRPC: TRPCIcon,
-  Hono: HonoIcon,
-  Bun: BunIcon,
-  "Better Auth": BetterAuthIcon,
-};
 ---
 
-<section class="flex items-center justify-center px-4 container mx-auto pt-8 md:pt-16" id="projects">
-  <div class="w-full">
-    <!-- Section title -->
-    <div class="text-left mb-8 md:mb-16 flex items-center">
-      <img src={BranchLeftIcon} alt="branch-left" class="w-10 h-10" />
-      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800">
-        Selected Projects
-      </h2>
-      <img src={BranchRightIcon} alt="branch-right" class="w-10 h-10" />
+<section class="section" id="projects" style="padding-top: 40px;">
+  <div class="container">
+    <div class="section-label">
+      <span class="label-star" style={`-webkit-mask-image: url(${star}); mask-image: url(${star});`}></span>
+      [ 02 ] Selected work
     </div>
+    <h2 class="section-title">Problems solved, <em>measured</em> in production.</h2>
 
-    <div class="flex flex-col gap-12 md:gap-16">
-      {
-        projects.map((project, index) => {
-          return (
-            <div class={`flex flex-col relative ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} gap-8 md:gap-12 items-center`}>
-              {/* Mockup Image */}
-              <div class="flex-1 max-w-lg z-10">
-                {project.image && (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    class="w-full h-auto object-contain"
-                  />
-                )}
-              </div>
-              
-              {/* Project Info */}
-              <div class={`flex-1 space-y-6 bg-secondary p-6 md:p-8 rounded-lg shadow-sm`}>
-                <div>
-                  <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-                    {project.title}
-                  </h3>
-                  <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-                
-                {/* Technologies */}
-                <div class="flex flex-wrap gap-3">
-                  {project.technologies.map((tech) => {
-                    const IconComponent = techIcons[tech];
-                    return (
-                      <span class="inline-flex items-center justify-center p-2 rounded-lg">
-                        {typeof IconComponent === "string" ? (
-                          <span class="text-gray-700 text-lg">
-                            {IconComponent}
-                          </span>
-                        ) : (
-                          <IconComponent class="w-8 h-8 text-gray-700" />
-                        )}
-                      </span>
-                    );
-                  })}
-                </div>
-                
-                {/* Links */}
-                <div class="flex gap-4">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
-                  >
-                    View Project
-                  </a>
-                </div>
-              </div>
+    {projects.map((project, index) => (
+      <div class={`case-study ${index === 1 ? 'reverse' : ''}`}>
+        <div class="case-content">
+          <div class="case-meta">
+            <div class="case-tag">
+              <img src={folder} class="folder-mini" alt="">
+              Case {project.case} · {project.year}
             </div>
-          );
-        })
-      }
-    </div>
+            <h3 class="case-title">{project.title}</h3>
+            <p class="case-context">{project.context}</p>
+          </div>
+          <div class="case-body">
+            <h4>The problem</h4>
+            <p>{project.problem}</p>
+
+            <h4>What I built</h4>
+            <p>{project.built}</p>
+
+            <div class="results-grid">
+              {project.results.map(result => (
+                <div>
+                  <div class="result-num"><em>{result.num}</em></div>
+                  <div class="result-label">{result.label}</div>
+                </div>
+              ))}
+              <img src={index === 0 ? resource4 : (index === 1 ? resource5 : resource13)} class="arrow-deco" alt="" style={index === 2 ? "width: 50px; bottom: -22px; right: -10px; transform: rotate(40deg);" : ""}>
+            </div>
+
+            <div class="case-stack">
+              {project.stack.map(item => (
+                <span class="service-tag">{item}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+        
+        <div class="case-mockup">
+          <div class="mockup-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="url">{project.url}</span>
+          </div>
+          <div class="mockup-body">
+            {project.mockupType === 'outbox' && (
+              <div class="pipe-flow">
+                <div class="pipe-col">
+                  <div class="pipe-col-label">// outbox</div>
+                  <div class="pipe-event"><span class="ev-dot"></span>order.created</div>
+                  <div class="pipe-event"><span class="ev-dot"></span>billing.charged</div>
+                  <div class="pipe-event"><span class="ev-dot"></span>user.invited</div>
+                </div>
+                <div class="pipe-col">
+                  <div class="pipe-col-label">// queue</div>
+                  <div class="pipe-event"><span class="ev-dot"></span>SQS → retry</div>
+                  <div class="pipe-event"><span class="ev-dot"></span>SQS → ack</div>
+                  <div class="pipe-event"><span class="ev-dot"></span>SQS → ack</div>
+                </div>
+                <div class="pipe-col">
+                  <div class="pipe-col-label">// delivered</div>
+                  <div class="pipe-event delivered"><span class="ev-dot"></span>✓ webhook</div>
+                  <div class="pipe-event delivered"><span class="ev-dot"></span>✓ stripe</div>
+                  <div class="pipe-event delivered"><span class="ev-dot"></span>✓ sendgrid</div>
+                </div>
+              </div>
+            )}
+            
+            {project.mockupType === 'terminal' && (
+              <div class="terminal-content">
+                <span class="term-line"><span class="muted">[10:42:01]</span> → order #4821 received</span>
+                <span class="term-line"><span class="muted">[10:42:01]</span> lock acquired · <span class="ok">FOR UPDATE</span></span>
+                <span class="term-line"><span class="muted">[10:42:01]</span> billing.validate → <span class="warn">timeout</span></span>
+                <span class="term-line"><span class="muted">[10:42:02]</span> retry 1/3 · backoff 200ms</span>
+                <span class="term-line"><span class="muted">[10:42:02]</span> billing.validate → <span class="ok">200 OK</span></span>
+                <span class="term-line"><span class="muted">[10:42:02]</span> idempotency_key matched · skip dup</span>
+                <span class="term-line"><span class="muted">[10:42:02]</span> persist → <span class="ok">order.confirmed</span></span>
+                <span class="term-line"><span class="muted">[10:42:02]</span> emit → outbox · webhook queued</span>
+                <span class="term-line"><span class="muted">[10:42:02]</span> <span class="ok">✓ done</span> · 124ms</span>
+                <span class="term-line"><span class="muted">[10:42:03]</span> ready for next job<span class="term-cursor"></span></span>
+              </div>
+            )}
+
+            {project.mockupType === 'chat' && (
+              <div class="chat-window">
+                <div class="chat-msg"><span class="ch-tag">whatsapp</span>Hi! Is my order #4821 still on the way?</div>
+                <div class="chat-msg me"><span class="ch-tag">bot</span>Yes — out for delivery, ETA 18:30 📦</div>
+                <div class="chat-msg"><span class="ch-tag">instagram</span>Can someone help with billing?</div>
+                <div class="chat-msg me"><span class="ch-tag">agent</span>Routing you to a human now…</div>
+                <div class="chat-msg"><span class="ch-tag">messenger</span>Thanks, super fast!</div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    ))}
   </div>
 </section>
+
+<style>
+  .label-star {
+    width: 14px;
+    height: 18px;
+    background-color: var(--accent);
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    display: block;
+  }
+</style>
