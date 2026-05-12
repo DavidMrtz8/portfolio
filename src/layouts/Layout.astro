@@ -6,7 +6,7 @@ import Analytics from "@vercel/analytics/astro";
 const {
 	title = "David Martínez — Backend Engineer | NestJS, AWS, TypeScript",
 	description = "Backend engineer building reliable distributed systems. NestJS, TypeScript, AWS. Helping SaaS teams ship backends that don't break in production.",
-	image = "/me.svg",
+	image = "/og-image.png",
 	keywords = "backend engineer, NestJS developer, TypeScript developer, AWS, distributed systems, event-driven architecture, Outbox Pattern, SaaS backend, PostgreSQL, Node.js, freelance backend engineer, Honduras backend engineer",
 	noindex = false,
 } = Astro.props;
@@ -204,6 +204,9 @@ const websiteSchema = {
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 		<meta property="og:image:alt" content="David Martínez — Backend Engineer" />
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:locale:alternate" content="es_HN" />
