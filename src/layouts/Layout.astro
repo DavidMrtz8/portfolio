@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
+import Analytics from "@vercel/analytics/astro";
 
 const {
 	title = "David Martínez — Backend Engineer | NestJS, TypeScript, AWS, Event-Driven Systems",
@@ -239,6 +240,7 @@ const websiteSchema = {
 	<body>
 		<Navbar />
 		<slot />
+		<Analytics />
 
 		<script>
 			// Reveal on scroll

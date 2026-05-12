@@ -16,9 +16,5 @@ export default defineConfig({
 
   integrations: [sitemap()],
 
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-  })
+  adapter: vercel()
 });
