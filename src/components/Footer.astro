@@ -5,11 +5,21 @@ import resource14 from "../assets/svg/resource14.svg?url";
 <footer>
   <img src={resource14} class="doodle footer-deco-loop" alt="">
   <div class="container footer-inner">
-    <div>San Pedro Sula, Honduras</div>
+    <div>
+      San Pedro Sula, Honduras
+      <span class="footer-updated">· Last updated <time datetime="2026-05-11">May 11, 2026</time></span>
+    </div>
     <ul class="footer-links">
-      <li><a href="https://github.com/DavidMrtz8" target="_blank">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/david-daniel-membre%C3%B1o-mart%C3%ADnez-961053322" target="_blank">LinkedIn</a></li>
+      <li><a href="https://github.com/DavidMrtz8" target="_blank" rel="noopener me">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/david-daniel-membre%C3%B1o-mart%C3%ADnez-961053322" target="_blank" rel="noopener me">LinkedIn</a></li>
       <li><a href="/cv.pdf" download>CV (PDF)</a></li>
     </ul>
   </div>
 </footer>
+
+<style>
+  .footer-updated {
+    color: var(--ink-muted);
+    font-size: 0.9em;
+  }
+</style>

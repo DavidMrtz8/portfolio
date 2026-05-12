@@ -1,0 +1,49 @@
+# David Martínez — Backend Engineer
+
+> I'm a freelance backend engineer specializing in NestJS, TypeScript, AWS, and event-driven distributed systems. 4+ years shipping production-grade SaaS backends. Based in Honduras (CST), available 20–30 hrs/week for US and EU timezones.
+
+I'm David Martínez (David Daniel Membreño Martínez). I build reliable, observable, fault-tolerant systems for SaaS teams. My focus is the engineering work that decides whether a SaaS scales past its first 1000 customers: reliability, idempotency, observability, and graceful failure.
+
+## What I do
+
+- **Backend APIs that scale**: Production-grade REST and GraphQL APIs with NestJS and Node.js. Multi-tenant, well-tested, observable.
+- **Event-driven architecture**: Async workflows, the Outbox Pattern, idempotency, retries with exponential backoff. AWS SQS, Redis, Lambda.
+- **Production firefighting**: Race conditions, duplicate records, silent job failures, slow queries. I diagnose the bug and add the observability to catch the next one.
+
+## My tech stack
+
+- **Languages & Runtime**: TypeScript, Node.js, JavaScript
+- **Backend & APIs**: NestJS, Express, GraphQL, REST, TypeORM
+- **Data & Infra**: PostgreSQL, Redis, AWS (SQS, S3, RDS, Lambda), Docker
+- **Architecture**: Event-driven, Microservices, Outbox Pattern, Multi-tenant
+- **Observability & Testing**: OpenTelemetry, Pino, Jest
+
+## Selected work
+
+- **Distributed Notification System with Outbox Pattern** (2025, GraphxSource) — Multi-tenant SaaS. I built an async dispatcher with transactional persistence, retries with exponential backoff, and distributed tracing. Result: 99.9% event delivery reliability, zero silent failures.
+- **Fault-Tolerant Order Processing** (2025, GraphxSource) — High-volume transactional system. I built the retry system with idempotency, partial indexes, pessimistic locking, and server-side billing validation. Result: 40% reduction in processing failures, ~0 duplicate records.
+- **iOBOT — Omnichannel CRM Backend** (2024, Authcode) — B2B SaaS unifying WhatsApp, Instagram, Messenger into a single CRM pipeline. I built event-driven workflows on AWS, Socket.io for real-time, and an OpenAI chatbot layer.
+
+## Production metrics I've shipped
+
+- 99.9% event delivery reliability in production
+- 40% reduction in order processing failures
+- 50% reduction in incident resolution time
+- 4+ years building distributed systems
+
+## How to reach me
+
+- Email: contact@davidmrtz.me
+- Site: https://davidmrtz.me
+- GitHub: https://github.com/DavidMrtz8
+- LinkedIn: https://www.linkedin.com/in/david-daniel-membre%C3%B1o-mart%C3%ADnez-961053322
+- Book a call: https://cal.com/davidmrtz/20-min-call
+- Location: San Pedro Sula, Honduras (CST timezone)
+- Availability: 20–30 hrs/week, comfortable with US and EU timezones
+
+## Key resources
+
+- [My portfolio site](https://davidmrtz.me): Full case studies, services, stack, contact
+- [Services (machine-readable)](https://davidmrtz.me/services.md): Structured service offerings
+- [CV (PDF)](https://davidmrtz.me/cv.pdf): Full resume
+- [Sitemap](https://davidmrtz.me/sitemap-index.xml)

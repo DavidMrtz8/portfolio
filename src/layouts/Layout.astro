@@ -1,6 +1,182 @@
 ---
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
+
+const {
+	title = "David Martínez — Backend Engineer | NestJS, TypeScript, AWS, Event-Driven Systems",
+	description = "Backend engineer with 4+ years building reliable distributed systems. NestJS, TypeScript, PostgreSQL, AWS. Available for SaaS teams that need backends that don't break in production.",
+	image = "/me.svg",
+	keywords = "backend engineer, NestJS developer, TypeScript developer, AWS, distributed systems, event-driven architecture, Outbox Pattern, SaaS backend, PostgreSQL, Node.js, freelance backend engineer, Honduras backend engineer",
+	noindex = false,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString().replace(/\/$/, "") || Astro.site?.toString();
+const ogImage = new URL(image, Astro.site).toString();
+
+const lastModified = "2026-05-11";
+
+const personSchema = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	"@id": "https://davidmrtz.me/#person",
+	"name": "David Martínez",
+	"alternateName": "David Daniel Membreño Martínez",
+	"url": "https://davidmrtz.me",
+	"image": ogImage,
+	"jobTitle": "Backend Engineer",
+	"description": description,
+	"email": "contact@davidmrtz.me",
+	"nationality": { "@type": "Country", "name": "Honduras" },
+	"address": {
+		"@type": "PostalAddress",
+		"addressLocality": "San Pedro Sula",
+		"addressRegion": "Cortés",
+		"addressCountry": "HN"
+	},
+	"sameAs": [
+		"https://github.com/DavidMrtz8",
+		"https://www.linkedin.com/in/david-daniel-membre%C3%B1o-mart%C3%ADnez-961053322"
+	],
+	"knowsLanguage": ["en", "es"],
+	"knowsAbout": [
+		"Backend Engineering",
+		"NestJS",
+		"TypeScript",
+		"Node.js",
+		"PostgreSQL",
+		"AWS",
+		"AWS SQS",
+		"AWS Lambda",
+		"Redis",
+		"Docker",
+		"Distributed Systems",
+		"Event-Driven Architecture",
+		"Outbox Pattern",
+		"Idempotency",
+		"Microservices",
+		"Multi-tenant Architecture",
+		"GraphQL",
+		"REST APIs",
+		"TypeORM",
+		"OpenTelemetry",
+		"Distributed Tracing",
+		"Observability",
+		"Production Engineering"
+	],
+	"hasOccupation": {
+		"@type": "Occupation",
+		"name": "Backend Engineer",
+		"occupationalCategory": "15-1252.00",
+		"skills": "NestJS, TypeScript, Node.js, PostgreSQL, AWS, event-driven architecture, distributed systems"
+	}
+};
+
+const professionalServiceSchema = {
+	"@context": "https://schema.org",
+	"@type": "ProfessionalService",
+	"@id": "https://davidmrtz.me/#service",
+	"name": "David Martínez — Backend Engineering Services",
+	"image": ogImage,
+	"url": "https://davidmrtz.me",
+	"email": "contact@davidmrtz.me",
+	"provider": { "@id": "https://davidmrtz.me/#person" },
+	"areaServed": [
+		{ "@type": "Place", "name": "Worldwide" },
+		{ "@type": "Country", "name": "United States" },
+		{ "@type": "Country", "name": "European Union" }
+	],
+	"serviceType": [
+		"Backend API Development",
+		"Event-Driven Architecture",
+		"Production Engineering and Firefighting"
+	],
+	"hasOfferCatalog": {
+		"@type": "OfferCatalog",
+		"name": "Backend Engineering Services",
+		"itemListElement": [
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Backend APIs that scale",
+					"description": "Production-grade REST and GraphQL APIs with NestJS and Node.js. Multi-tenant, well-tested, observable."
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Event-driven architecture",
+					"description": "Async workflows, Outbox Pattern, idempotency, retries with exponential backoff. AWS SQS, Redis, Lambda."
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Production firefighting",
+					"description": "Diagnose race conditions, duplicate records, silent job failures, slow queries. Add observability to catch the next one."
+				}
+			}
+		]
+	}
+};
+
+const projectsSchema = {
+	"@context": "https://schema.org",
+	"@type": "ItemList",
+	"name": "Selected backend engineering case studies",
+	"itemListElement": [
+		{
+			"@type": "ListItem",
+			"position": 1,
+			"item": {
+				"@type": "CreativeWork",
+				"name": "Distributed Notification System with the Outbox Pattern",
+				"about": "Multi-tenant SaaS event delivery using Outbox Pattern, AWS SQS, retries with exponential backoff, and distributed tracing.",
+				"author": { "@id": "https://davidmrtz.me/#person" },
+				"dateCreated": "2025",
+				"keywords": "NestJS, PostgreSQL, AWS SQS, Outbox Pattern, distributed systems"
+			}
+		},
+		{
+			"@type": "ListItem",
+			"position": 2,
+			"item": {
+				"@type": "CreativeWork",
+				"name": "Fault-Tolerant Order Processing",
+				"about": "High-volume transactional system with idempotency, partial indexes, pessimistic locking, and server-side billing validation.",
+				"author": { "@id": "https://davidmrtz.me/#person" },
+				"dateCreated": "2025",
+				"keywords": "TypeScript, PostgreSQL, idempotency, locking"
+			}
+		},
+		{
+			"@type": "ListItem",
+			"position": 3,
+			"item": {
+				"@type": "CreativeWork",
+				"name": "iOBOT — Omnichannel CRM Backend",
+				"about": "B2B SaaS unifying WhatsApp, Instagram, Messenger into a single CRM pipeline. Event-driven workflows on AWS, Socket.io real-time, OpenAI chatbot layer.",
+				"author": { "@id": "https://davidmrtz.me/#person" },
+				"dateCreated": "2024",
+				"keywords": "Node.js, AWS SQS, Socket.io, OpenAI API"
+			}
+		}
+	]
+};
+
+const websiteSchema = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	"@id": "https://davidmrtz.me/#website",
+	"url": "https://davidmrtz.me",
+	"name": "David Martínez — Backend Engineer",
+	"description": description,
+	"inLanguage": "en",
+	"author": { "@id": "https://davidmrtz.me/#person" },
+	"dateModified": lastModified
+};
 ---
 
 <!doctype html>
@@ -8,18 +184,62 @@ import Navbar from "../components/Navbar.astro";
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="David Martínez — Backend Engineer Portfolio" />
-		<title>David Martínez — Backend Engineer</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300..800;9..144,1,300..800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<meta name="author" content="David Martínez" />
+		<meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1"} />
+		<link rel="canonical" href={canonicalURL} />
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" href="/favicon.svg" />
+		<meta name="theme-color" content="#0a0a0a" />
+		<meta name="color-scheme" content="light dark" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:alt" content="David Martínez — Backend Engineer" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:locale:alternate" content="es_HN" />
+		<meta property="og:site_name" content="David Martínez" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonicalURL} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="preload"
+			as="style"
+			href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300..800;9..144,1,300..800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300..800;9..144,1,300..800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+		/>
+
+		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<meta name="last-modified" content={lastModified} />
+		<link rel="alternate" type="text/plain" title="LLMs context" href="/llms.txt" />
+
+		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(professionalServiceSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(projectsSchema)} />
 	</head>
 	<body>
 		<Navbar />
 		<slot />
-		
+
 		<script>
 			// Reveal on scroll
 			const observer = new IntersectionObserver((entries) => {
@@ -35,5 +255,3 @@ import Navbar from "../components/Navbar.astro";
 		</script>
 	</body>
 </html>
-
-

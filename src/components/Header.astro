@@ -14,7 +14,7 @@ const me = "/me.svg"; // Public asset
         <div class="hero-tag">Available for new projects</div>
         <h1>
           Backend engineer<br>
-          who builds systems<br>
+          who builds <span class="sr-only">distributed </span>systems<br>
           that <em>don't break</em> <span class="underline">in production.</span>
         </h1>
         <p class="hero-sub">
@@ -30,7 +30,15 @@ const me = "/me.svg"; // Public asset
       </div>
       <div class="hero-portrait">
         <div class="hero-portrait-badge">Hola, soy David</div>
-          <img src={me} alt="David Martínez">
+          <img
+            src={me}
+            alt="David Martínez — Backend Engineer"
+            width="480"
+            height="600"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          >
       </div>
     </div>
 

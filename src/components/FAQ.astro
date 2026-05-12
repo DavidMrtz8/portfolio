@@ -1,0 +1,124 @@
+---
+import star from "../assets/svg/star.svg?url";
+
+const faqs = [
+  {
+    q: "What kind of backend work do I specialize in?",
+    a: "I build production-grade backend systems for SaaS: NestJS and TypeScript APIs (REST and GraphQL), event-driven architectures with the Outbox Pattern, AWS infrastructure (SQS, Lambda, RDS, S3), PostgreSQL, Redis, and observability with OpenTelemetry. My focus is reliability, idempotency, and graceful failure — the engineering work that decides whether a SaaS scales past its first 1000 customers."
+  },
+  {
+    q: "How many years of experience do I have?",
+    a: "4+ years building and shipping distributed systems to production. Recent work includes a multi-tenant notification system I built with 99.9% event delivery reliability and a fault-tolerant order processing system that reduced processing failures by 40%."
+  },
+  {
+    q: "Am I available for freelance or contract work?",
+    a: "Yes. I'm available 20–30 hours per week for the right project. I'm based in San Pedro Sula, Honduras (CST, UTC-6) and comfortable working with US and EU timezones. We start with a free 20-minute call to assess fit."
+  },
+  {
+    q: "What is the Outbox Pattern and why do I use it?",
+    a: "The Outbox Pattern is a reliability technique for distributed systems: I persist events to a database table in the same transaction as the business write, then dispatch them asynchronously from a separate process. This guarantees events are never lost on transient failures, network blips, or service restarts. It's the difference between 'send and pray' and 99.9% event delivery in production."
+  },
+  {
+    q: "How do I approach observability?",
+    a: "I use distributed tracing with OpenTelemetry, structured logging with Pino, metrics for retry behavior and queue depth, and dashboards for end-to-end latency. My goal is that when something fails at 2am, the next engineer can diagnose it without paging anyone."
+  },
+  {
+    q: "What technologies do I use most?",
+    a: "Daily: NestJS, TypeScript, Node.js, PostgreSQL, AWS SQS, Redis, Docker. Regularly: GraphQL, TypeORM, Lambda, S3, RDS, OpenTelemetry, Jest. Architecture patterns I use most: event-driven, microservices, Outbox Pattern, multi-tenant."
+  },
+  {
+    q: "How do we start working together?",
+    a: "Book a free 20-minute call with me at https://cal.com/davidmrtz/20-min-call or email contact@davidmrtz.me. I respond within 24 hours and will tell you directly whether I'm a fit for the project."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.a
+    }
+  }))
+};
+---
+
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="section-label">
+      <span class="label-star" style={`-webkit-mask-image: url(${star}); mask-image: url(${star});`}></span>
+      [ 04 ] FAQ
+    </div>
+    <h2 class="section-title">Common <em>questions</em>.</h2>
+
+    <div class="faq-list">
+      {faqs.map(f => (
+        <details class="faq-item">
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<style>
+  .faq-section { padding-top: 40px; }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .faq-item {
+    border: 1px solid var(--line);
+    background: var(--paper);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-family: 'Inter', sans-serif;
+  }
+  .faq-item summary {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    color: var(--ink);
+  }
+  .faq-item summary::after {
+    content: '+';
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 1.4rem;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--ink-muted);
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+  .label-star {
+    width: 14px;
+    height: 18px;
+    background-color: var(--accent);
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    display: block;
+  }
+</style>
