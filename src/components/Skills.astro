@@ -27,30 +27,30 @@ import lessThanSignIcon from "../assets/svg/resource5.svg?url";
 import greaterThanSignIcon from "../assets/svg/resource4.svg?url";
 
 const skills = [
-  AstroIcon,
-  AwsIcon,
-  BetterAuthIcon,
-  BunIcon,
-  CssIcon,
-  DockerIcon,
-  EslintIcon,
-  ExpressIcon,
-  FirebaseIcon,
-  FlyIcon,
-  GitIcon,
-  GoogleCloudIcon,
-  HonoIcon,
-  MetaIcon,
-  NextIcon,
-  NodeIcon,
-  ReactQueryIcon,
-  ReactIcon,
-  TailwindIcon,
-  TrpcIcon,
-  TypescriptIcon,
-  VercelIcon,
-  GithubIcon,
-  PnpmIcon,
+  { Icon: AstroIcon, label: "Astro" },
+  { Icon: AwsIcon, label: "AWS" },
+  { Icon: BetterAuthIcon, label: "Better Auth" },
+  { Icon: BunIcon, label: "Bun" },
+  { Icon: CssIcon, label: "CSS" },
+  { Icon: DockerIcon, label: "Docker" },
+  { Icon: EslintIcon, label: "ESLint" },
+  { Icon: ExpressIcon, label: "Express" },
+  { Icon: FirebaseIcon, label: "Firebase" },
+  { Icon: FlyIcon, label: "Fly.io" },
+  { Icon: GitIcon, label: "Git" },
+  { Icon: GoogleCloudIcon, label: "Google Cloud" },
+  { Icon: HonoIcon, label: "Hono" },
+  { Icon: MetaIcon, label: "Meta" },
+  { Icon: NextIcon, label: "Next.js" },
+  { Icon: NodeIcon, label: "Node.js" },
+  { Icon: ReactQueryIcon, label: "React Query" },
+  { Icon: ReactIcon, label: "React" },
+  { Icon: TailwindIcon, label: "Tailwind CSS" },
+  { Icon: TrpcIcon, label: "tRPC" },
+  { Icon: TypescriptIcon, label: "TypeScript" },
+  { Icon: VercelIcon, label: "Vercel" },
+  { Icon: GithubIcon, label: "GitHub" },
+  { Icon: PnpmIcon, label: "pnpm" },
 ];
 ---
 
@@ -72,8 +72,12 @@ const skills = [
       class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12 gap-3 md:gap-4 place-items-center justify-center w-full"
     >
       {
-        skills.map((Icon) => (
-          <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
+        skills.map(({ Icon, label }) => (
+          <div
+            class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center"
+            role="img"
+            aria-label={label}
+          >
             <Icon class="w-full h-full text-white hover:scale-110 transition-transform duration-300" />
           </div>
         ))
