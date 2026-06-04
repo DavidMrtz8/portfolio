@@ -1,0 +1,374 @@
+---
+import star from "../assets/svg/star.svg?url";
+---
+
+<section class="section" id="products" style="padding-top: 64px;">
+  <div class="container">
+    <div class="section-label">
+      <span class="label-star" style={`-webkit-mask-image: url(${star}); mask-image: url(${star});`}></span>
+      [ 03 ] In production
+    </div>
+    <h2 class="section-title">Products I helped ship at <em>Authcode</em> — live, in the wild.</h2>
+
+<div class="products-grid">
+
+      <!-- iobot CRM -->
+      <a href="https://iobot.chat/" target="_blank" rel="noopener" class="product-card">
+        <div class="product-stage">
+          <div class="crm">
+            <div class="crm-bar"><span class="d"></span><span class="d"></span><span class="d"></span></div>
+            <div class="crm-body">
+              <div class="crm-list">
+                <div class="crm-conv active"><span class="av" style="background:#e8632a"></span>Ana · WA</div>
+                <div class="crm-conv"><span class="av" style="background:#8a78c8"></span>Luis · IG</div>
+                <div class="crm-conv"><span class="av" style="background:#48a0e8"></span>Sara · FB</div>
+                <div class="crm-conv"><span class="av" style="background:#2ecc71"></span>Bot · web</div>
+              </div>
+              <div class="crm-chat">
+                <div class="crm-msg">¿Tienen disponible el plan pro?</div>
+                <div class="crm-msg bot">¡Sí! Te envío los detalles ahora 🚀</div>
+                <div class="crm-msg">Perfecto, gracias</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-meta">
+          <div class="product-kicker">Omnichannel CRM · SaaS</div>
+          <div class="product-name">iobot <span class="ext">↗</span></div>
+          <p class="product-desc">Unified inbox for WhatsApp, Instagram, Messenger &amp; web — with AI chatbots and live agent routing. I built the event-driven backend.</p>
+          <div class="product-tags">
+            <span class="service-tag">NestJS</span>
+            <span class="service-tag">AWS</span>
+            <span class="service-tag">Socket.io</span>
+            <span class="service-tag">OpenAI</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Wendy's Pedidos -->
+      <a href="https://ordenar.wendys.hn/catalogs/for-you" target="_blank" rel="noopener" class="product-card">
+        <div class="product-stage">
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="ord-head">Wendy's Pedidos<small>Order · for you</small></div>
+              <div class="ord-list">
+                <div class="ord-item"><span class="thumb"></span><span class="nm">Baconator Combo</span><span class="pr">L 189</span></div>
+                <div class="ord-item"><span class="thumb"></span><span class="nm">Spicy Chicken</span><span class="pr">L 145</span></div>
+                <div class="ord-item"><span class="thumb"></span><span class="nm">Frosty</span><span class="pr">L 49</span></div>
+              </div>
+              <div class="ord-cart"><span>3 items</span><span class="total">L 383</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="product-meta">
+          <div class="product-kicker">E-commerce · ordering</div>
+          <div class="product-name">Wendy's Pedidos <span class="ext">↗</span></div>
+          <p class="product-desc">High-traffic ordering platform for the franchise in Honduras. Smart catalogs, combo builder and a fast mobile checkout.</p>
+          <div class="product-tags">
+            <span class="service-tag">Node.js</span>
+            <span class="service-tag">Payments</span>
+            <span class="service-tag">High-traffic</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Delivery iobot -->
+      <a href="https://delivery.iobot.chat/118666?t_id=f572f86a-d711-465c-9ff4-9f7780555980" target="_blank" rel="noopener" class="product-card">
+        <div class="product-stage">
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="drv-head">Deliveries<span class="online">online</span></div>
+              <div class="drv-order">
+                <div class="badge">New order · #4821</div>
+                <div class="addr">Col. Trejo, 4ta calle, casa #12</div>
+                <div class="dist">2.4 km · ~9 min</div>
+                <div class="drv-actions">
+                  <span class="drv-btn reject">Reject</span>
+                  <span class="drv-btn accept">Accept</span>
+                </div>
+              </div>
+              <div class="drv-done">
+                <span class="tick">✓</span>
+                <span class="txt">Order accepted</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-meta">
+          <div class="product-kicker">Mobile app · logistics</div>
+          <div class="product-name">Delivery iobot <span class="ext">↗</span></div>
+          <p class="product-desc">Driver app for real-time delivery management — accept or reject orders and track assigned routes. Powers in-house delivery for any business.</p>
+          <div class="product-tags">
+            <span class="service-tag">Node.js</span>
+            <span class="service-tag">Real-time</span>
+            <span class="service-tag">Geo</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .label-star {
+    width: 14px;
+    height: 18px;
+    background-color: var(--accent);
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    display: block;
+  }
+
+  .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: var(--ink);
+      background: var(--paper);
+      border: 1.5px solid var(--ink);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 4px 5px 0 var(--ink);
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 7px 10px 0 var(--ink);
+    }
+    .product-stage {
+      position: relative;
+      height: 250px;
+      background: var(--bg-soft);
+      border-bottom: 1.5px solid var(--ink);
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .product-stage::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 120%, rgba(232,99,42,0.14), transparent 60%);
+    }
+    .product-meta { padding: 22px 22px 24px; }
+    .product-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .product-name {
+      font-family: 'Fraunces', serif;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .product-name .ext { font-size: 14px; color: var(--accent); transition: transform 0.2s; }
+    .product-card:hover .product-name .ext { transform: translate(2px, -2px); }
+    .product-desc {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+    .product-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    /* Phone frame */
+    .phone {
+      width: 158px;
+      height: 224px;
+      background: var(--card-dark);
+      border: 4px solid var(--ink);
+      border-bottom: none;
+      border-radius: 22px 22px 0 0;
+      padding: 8px 8px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .phone::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 44px;
+      height: 5px;
+      background: rgba(239,233,221,0.4);
+      border-radius: 3px;
+      z-index: 3;
+    }
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: var(--paper);
+      border-radius: 14px 14px 0 0;
+      overflow: hidden;
+      position: relative;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Wendy's ordering mockup */
+    .ord-head {
+      background: var(--accent);
+      color: var(--paper);
+      padding: 16px 12px 10px;
+      font-family: 'Fraunces', serif;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .ord-head small { display: block; font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 400; opacity: 0.85; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2px; }
+    .ord-list { padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+    .ord-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-soft);
+      border-radius: 8px;
+      padding: 7px 8px;
+      font-size: 10px;
+      opacity: 0;
+      animation: ordIn 8s ease-in-out infinite;
+    }
+    .ord-item .thumb { width: 26px; height: 26px; border-radius: 6px; background: var(--accent-soft); flex-shrink: 0; }
+    .ord-item .nm { flex: 1; font-weight: 600; color: var(--ink); }
+    .ord-item .pr { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--ink-soft); }
+    .ord-item:nth-child(1) { animation-delay: 0.3s; }
+    .ord-item:nth-child(2) { animation-delay: 1.5s; }
+    .ord-item:nth-child(3) { animation-delay: 2.7s; }
+    @keyframes ordIn {
+      0% { opacity: 0; transform: translateX(-10px); }
+      7% { opacity: 1; transform: translateX(0); }
+      88% { opacity: 1; transform: translateX(0); }
+      100% { opacity: 0; }
+    }
+    .ord-cart {
+      position: absolute;
+      left: 10px; right: 10px; bottom: 0;
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: 8px 8px 0 0;
+      padding: 9px 11px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .ord-cart .total { font-family: 'JetBrains Mono', monospace; color: var(--accent-soft); }
+
+    /* Delivery driver mockup */
+    .drv-head {
+      background: var(--card-dark);
+      color: var(--paper);
+      padding: 16px 12px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .drv-head .online { display: inline-flex; align-items: center; gap: 5px; font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 400; }
+    .drv-head .online::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #2ecc71; box-shadow: 0 0 0 3px rgba(46,204,113,0.25); }
+    .drv-order {
+      margin: 10px;
+      background: var(--bg-soft);
+      border: 1px solid rgba(26,26,26,0.15);
+      border-radius: 10px;
+      padding: 11px;
+      animation: drvCard 7s ease-in-out infinite;
+    }
+    .drv-order .badge { font-family: 'JetBrains Mono', monospace; font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 6px; }
+    .drv-order .addr { font-size: 10.5px; font-weight: 600; line-height: 1.35; margin-bottom: 4px; color: var(--ink); }
+    .drv-order .dist { font-size: 9px; color: var(--ink-muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 9px; }
+    .drv-actions { display: flex; gap: 6px; }
+    .drv-btn { flex: 1; text-align: center; font-size: 9.5px; font-weight: 600; padding: 7px 0; border-radius: 6px; }
+    .drv-btn.accept { background: var(--accent); color: var(--paper); animation: drvPulse 7s ease-in-out infinite; }
+    .drv-btn.reject { background: transparent; border: 1px solid rgba(26,26,26,0.25); color: var(--ink-soft); }
+    @keyframes drvCard {
+      0% { opacity: 0; transform: translateY(-12px) scale(0.97); }
+      8% { opacity: 1; transform: translateY(0) scale(1); }
+      55% { opacity: 1; transform: translateY(0) scale(1); }
+      65% { opacity: 0.55; transform: translateY(0) scale(0.99); }
+      72% { opacity: 1; transform: translateY(0) scale(1); }
+      92% { opacity: 1; }
+      100% { opacity: 0; transform: translateY(-6px); }
+    }
+    @keyframes drvPulse {
+      58%, 70% { background: #2a8a4a; }
+      62% { transform: scale(0.94); }
+    }
+    .drv-done {
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      opacity: 0;
+      animation: drvDone 7s ease-in-out infinite;
+    }
+    .drv-done .tick { width: 38px; height: 38px; border-radius: 50%; background: #2ecc71; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .drv-done .txt { font-size: 10px; font-weight: 600; font-family: 'JetBrains Mono', monospace; color: var(--ink-soft); }
+    @keyframes drvDone {
+      0%, 64% { opacity: 0; }
+      70% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    /* iObot CRM dashboard mockup (browser) */
+    .crm {
+      width: 280px;
+      background: var(--paper);
+      border: 1.5px solid var(--ink);
+      border-bottom: none;
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+      z-index: 1;
+      box-shadow: 0 -2px 0 rgba(0,0,0,0.04);
+    }
+    .crm-bar { display: flex; align-items: center; gap: 5px; padding: 8px 10px; background: var(--bg-soft); border-bottom: 1px solid rgba(26,26,26,0.12); }
+    .crm-bar .d { width: 8px; height: 8px; border-radius: 50%; background: var(--ink-muted); opacity: 0.45; }
+    .crm-body { display: grid; grid-template-columns: 92px 1fr; height: 150px; }
+    .crm-list { border-right: 1px solid rgba(26,26,26,0.12); padding: 8px 6px; display: flex; flex-direction: column; gap: 5px; }
+    .crm-conv { display: flex; align-items: center; gap: 5px; padding: 5px 6px; border-radius: 6px; font-size: 8.5px; color: var(--ink-soft); }
+    .crm-conv .av { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; }
+    .crm-conv.active { background: var(--bg-soft); color: var(--ink); font-weight: 600; }
+    .crm-conv .ch { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+    .crm-chat { padding: 9px; display: flex; flex-direction: column; gap: 6px; justify-content: flex-end; }
+    .crm-msg { max-width: 82%; font-size: 8.5px; line-height: 1.35; padding: 6px 8px; border-radius: 9px; background: var(--bg-soft); color: var(--ink); opacity: 0; animation: crmMsg 8s ease-in-out infinite; }
+    .crm-msg.bot { align-self: flex-end; background: var(--accent); color: var(--paper); }
+    .crm-msg:nth-child(1) { animation-delay: 0.5s; }
+    .crm-msg:nth-child(2) { animation-delay: 2s; }
+    .crm-msg:nth-child(3) { animation-delay: 3.6s; }
+    @keyframes crmMsg {
+      0% { opacity: 0; transform: translateY(6px); }
+      8% { opacity: 1; transform: translateY(0); }
+      90% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    @media (max-width: 900px) {
+      .products-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+    }
+</style>
