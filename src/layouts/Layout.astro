@@ -15,6 +15,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString().replace(
 const ogImage = new URL(image, Astro.site).toString();
 
 const lastModified = "2026-11-24";
+const googleFontsStylesheet = "https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300..800;9..144,1,300..800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap";
 
 const personSchema = {
 	"@context": "https://schema.org",
@@ -224,12 +225,12 @@ const websiteSchema = {
 		<link
 			rel="preload"
 			as="style"
-			href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300..800;9..144,1,300..800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+			href={googleFontsStylesheet}
+			onload="this.onload=null;this.rel='stylesheet'"
 		/>
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300..800;9..144,1,300..800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
-		/>
+		<noscript>
+			<link rel="stylesheet" href={googleFontsStylesheet} />
+		</noscript>
 
 		<link rel="sitemap" href="/sitemap-index.xml" />
 
