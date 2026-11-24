@@ -222,11 +222,44 @@ const websiteSchema = {
 		<link rel="preload" as="image" href="/me.svg" fetchpriority="high" type="image/svg+xml" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<script is:inline>
+			function applyPortfolioFonts(stylesheet) {
+				stylesheet.onload = null;
+				const apply = () => {
+					if (stylesheet.rel === "preload") stylesheet.rel = "stylesheet";
+				};
+				if (!matchMedia("(max-width: 900px)").matches) {
+					apply();
+					return;
+				}
+				const waitForPortrait = () => {
+					const portrait = document.querySelector(".hero-portrait img");
+					if (!portrait?.decode) {
+						apply();
+						return;
+					}
+					const fallback = setTimeout(apply, 2000);
+					const finish = () => {
+						clearTimeout(fallback);
+						apply();
+					};
+					portrait.decode().then(
+						() => requestAnimationFrame(() => requestAnimationFrame(finish)),
+						finish,
+					);
+				};
+				if (document.readyState === "loading") {
+					document.addEventListener("DOMContentLoaded", waitForPortrait, { once: true });
+				} else {
+					waitForPortrait();
+				}
+			}
+		</script>
 		<link
 			rel="preload"
 			as="style"
 			href={googleFontsStylesheet}
-			onload="this.onload=null;this.rel='stylesheet'"
+			onload="applyPortfolioFonts(this)"
 		/>
 		<noscript>
 			<link rel="stylesheet" href={googleFontsStylesheet} />
