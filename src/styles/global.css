@@ -522,50 +522,6 @@ nav {
   color: var(--ink);
 }
 
-/* Mockup 1: SEO workflow */
-.pipe-flow {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 14px;
-  height: 100%;
-  align-content: center;
-}
-.pipe-col { display: flex; flex-direction: column; gap: 8px; }
-.pipe-col-label {
-  font-size: 9.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--ink-muted);
-  margin-bottom: 2px;
-}
-.pipe-event {
-  background: var(--bg);
-  border: 1px solid rgba(26,26,26,0.15);
-  border-radius: 4px;
-  padding: 6px 8px;
-  font-size: 10px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  opacity: 0;
-  animation: flowIn 6s linear infinite;
-}
-.pipe-event .ev-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
-}
-.pipe-event.delivered .ev-dot { background: #2ecc71; }
-.pipe-event:nth-child(2) { animation-delay: 0s; }
-.pipe-event:nth-child(3) { animation-delay: 1.5s; }
-.pipe-event:nth-child(4) { animation-delay: 3s; }
-@keyframes flowIn {
-  0% { opacity: 0; transform: translateY(-6px); }
-  8% { opacity: 1; transform: translateY(0); }
-  92% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(6px); }
-}
-
 /* Mockup 2: Order processing terminal */
 .term-line {
   display: block;

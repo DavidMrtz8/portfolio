@@ -98,33 +98,36 @@ const projects = [
           </div>
         </div>
         
-        <div class="case-mockup">
+        <div class:list={["case-mockup", { "case-mockup--seo": project.mockupType === "seo" }]}>
           <div class="mockup-bar">
             <span class="dot"></span><span class="dot"></span><span class="dot"></span>
             <span class="url">{project.url}</span>
           </div>
           <div class="mockup-body">
             {project.mockupType === 'seo' && (
-              <div class="pipe-flow">
-                <div class="pipe-col">
-                  <div class="pipe-col-label">// collect</div>
-                  <div class="pipe-event"><span class="ev-dot"></span>Public pages</div>
-                  <div class="pipe-event"><span class="ev-dot"></span>Search data</div>
-                  <div class="pipe-event"><span class="ev-dot"></span>Competitors</div>
-                </div>
-                <div class="pipe-col">
-                  <div class="pipe-col-label">// analyze</div>
-                  <div class="pipe-event"><span class="ev-dot"></span>Technical audit</div>
-                  <div class="pipe-event"><span class="ev-dot"></span>URL inspection</div>
-                  <div class="pipe-event"><span class="ev-dot"></span>Claude research</div>
-                </div>
-                <div class="pipe-col">
-                  <div class="pipe-col-label">// review</div>
-                  <div class="pipe-event delivered"><span class="ev-dot"></span>✓ History</div>
-                  <div class="pipe-event delivered"><span class="ev-dot"></span>✓ Suggested fixes</div>
-                  <div class="pipe-event delivered"><span class="ev-dot"></span>✓ Content plan</div>
-                </div>
-              </div>
+              <figure class="seo-case">
+                <figcaption>
+                  <strong>Search visibility and site health</strong>
+                </figcaption>
+                <dl class="seo-case-signals">
+                  <div><dt>Google Search Console</dt><dd>Queries, clicks and impressions</dd></div>
+                  <div><dt>URL inspection</dt><dd>Indexing status and suggested fixes</dd></div>
+                </dl>
+                <p class="seo-case-lab">Mobile LCP · PageSpeed Insights lab</p>
+                <dl class="seo-case-comparison">
+                  <div class="seo-case-reading">
+                    <dt>Before</dt>
+                    <dd>3.61 s</dd>
+                    <dd class="seo-case-track" aria-hidden="true"><span></span></dd>
+                  </div>
+                  <div class="seo-case-reading seo-case-reading--after">
+                    <dt>After</dt>
+                    <dd>1.68 s</dd>
+                    <dd class="seo-case-track" aria-hidden="true"><span></span></dd>
+                  </div>
+                </dl>
+                <p class="seo-case-note">LCP measured on davidmrtz.me after fixing the mobile render path.</p>
+              </figure>
             )}
             
             {project.mockupType === 'terminal' && (
@@ -155,6 +158,51 @@ const projects = [
 </section>
 
 <style>
+  .case-mockup--seo { aspect-ratio: auto; min-width: 0; }
+  .seo-case { display: grid; gap: 18px; }
+  .seo-case-signals {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 145px), 1fr));
+    gap: 8px;
+  }
+  .seo-case-signals div {
+    border: 1px solid rgb(26 26 26 / 15%);
+    border-radius: 6px;
+    padding: 9px 10px;
+  }
+  .seo-case-signals dt { font-weight: 600; }
+  .seo-case-signals dd, .seo-case-note { color: var(--ink-soft); }
+  .seo-case figcaption strong { font-size: 15px; }
+  .seo-case-lab { font-weight: 600; }
+  .seo-case-comparison { display: grid; gap: 10px; }
+  .seo-case-reading { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; }
+  .seo-case-reading dd { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .seo-case-track {
+    grid-column: 1 / -1;
+    display: block;
+    border-radius: 4px;
+    background: var(--bg-soft);
+    height: 7px;
+    overflow: hidden;
+  }
+  .seo-case-track span {
+    display: block;
+    border-radius: inherit;
+    height: 100%;
+    background: var(--ink-soft);
+    transform-origin: left;
+  }
+  .seo-case-reading--after dd { color: var(--accent-ink); }
+  .seo-case-reading--after .seo-case-track span { width: 46.5%; background: var(--accent-ink); }
+  @media (prefers-reduced-motion: no-preference) {
+    :global(.case-study.visible) .seo-case-track span {
+      animation: seo-reading 600ms ease-out both;
+    }
+    :global(.case-study.visible) .seo-case-reading--after .seo-case-track span {
+      animation-delay: 150ms;
+    }
+  }
+  @keyframes seo-reading { from { transform: scaleX(0.08); } to { transform: scaleX(1); } }
   .results-grid .arrow-deco-chat {
     width: 50px;
     bottom: -22px;

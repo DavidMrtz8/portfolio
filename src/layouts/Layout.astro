@@ -9,6 +9,8 @@ const {
 	image = "/og-image.png",
 	keywords = "backend engineer, NestJS developer, TypeScript developer, distributed systems, event-driven architecture, SaaS backend, billing, idempotency, Search Console, PostgreSQL, Node.js, freelance backend engineer, Honduras backend engineer",
 	noindex = false,
+	language = "en",
+	hasHeroPortrait = true,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString().replace(/\/$/, "") || Astro.site?.toString();
@@ -175,14 +177,14 @@ const websiteSchema = {
 	"url": "https://davidmrtz.me",
 	"name": "David Martínez — Backend Engineer",
 	"description": description,
-	"inLanguage": "en",
+	"inLanguage": ["en", "es"],
 	"author": { "@id": "https://davidmrtz.me/#person" },
 	"dateModified": lastModified
 };
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={language}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -190,7 +192,7 @@ const websiteSchema = {
 
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<meta name="keywords" content={keywords} />
+		{keywords && <meta name="keywords" content={keywords} />}
 		<meta name="author" content="David Martínez" />
 		<meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1"} />
 		<link rel="canonical" href={canonicalURL} />
@@ -209,8 +211,7 @@ const websiteSchema = {
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:image:alt" content="David Martínez — Backend Engineer" />
-		<meta property="og:locale" content="en_US" />
-		<meta property="og:locale:alternate" content="es_HN" />
+		<meta property="og:locale" content={language === "es" ? "es_HN" : "en_US"} />
 		<meta property="og:site_name" content="David Martínez" />
 
 		<meta name="twitter:card" content="summary_large_image" />
@@ -219,7 +220,7 @@ const websiteSchema = {
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={ogImage} />
 
-		<link rel="preload" as="image" href="/me.svg" fetchpriority="high" type="image/svg+xml" />
+		{hasHeroPortrait && <link rel="preload" as="image" href="/me.svg" fetchpriority="high" type="image/svg+xml" />}
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<script is:inline>
@@ -276,7 +277,7 @@ const websiteSchema = {
 		<script type="application/ld+json" set:html={JSON.stringify(projectsSchema)} />
 	</head>
 	<body>
-		<Navbar />
+		<slot name="navigation"><Navbar /></slot>
 		<main>
 			<slot />
 		</main>
