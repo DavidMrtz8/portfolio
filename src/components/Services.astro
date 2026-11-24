@@ -3,24 +3,27 @@ import star from "../assets/svg/star.svg?url";
 import folder from "../assets/svg/folder.svg?url";
 import branches from "../assets/svg/branches.svg?url";
 import mouse from "../assets/svg/mouse.svg?url";
+const { language = "en" } = Astro.props;
+const spanish = language === "es";
 ---
 
 <section class="section" id="services">
   <div class="container services-wrap">
     <div class="section-label">
       <span class="label-star" style={`-webkit-mask-image: url(${star}); mask-image: url(${star});`}></span>
-      [ 01 ] What I do
+      {spanish ? "[ 01 ] Servicios" : "[ 01 ] What I do"}
     </div>
-    <h2 class="section-title">Three things I do <em>better</em> than most.</h2>
+    <h2 class="section-title">{spanish ? <>En qué te puedo <em>ayudar.</em></> : <>Three things I do <em>better</em> than most.</>}</h2>
 
     <div class="services-grid">
       <div class="service">
-        <div class="service-num">01 / SERVICE</div>
-        <div class="service-icon"><img src={folder} alt="Backend APIs"></div>
-        <h3 class="service-title">Backend APIs that scale</h3>
+        <div class="service-num">01 / {spanish ? "SERVICIO" : "SERVICE"}</div>
+        <div class="service-icon"><img src={folder} alt=""></div>
+        <h3 class="service-title">{spanish ? "Desarrollo de APIs" : "Backend APIs that scale"}</h3>
         <p class="service-desc">
-          Production-grade REST and GraphQL APIs with NestJS and Node.js. Multi-tenant,
-          well-tested, observable. The kind of code your team can build on for years.
+          {spanish
+            ? "APIs REST y GraphQL con NestJS y Node.js. Defino el acceso a los datos de cada equipo, cubro los flujos con pruebas y dejo trazas para diagnosticar errores."
+            : "Production-grade REST and GraphQL APIs with NestJS and Node.js. Multi-tenant, well-tested, observable. The kind of code your team can build on for years."}
         </p>
         <div class="service-tags">
           <span class="service-tag">NestJS</span>
@@ -31,12 +34,13 @@ import mouse from "../assets/svg/mouse.svg?url";
       </div>
 
       <div class="service">
-        <div class="service-num">02 / SERVICE</div>
-        <div class="service-icon"><img src={branches} alt="Event-driven architecture"></div>
-        <h3 class="service-title">Event-driven architecture</h3>
+        <div class="service-num">02 / {spanish ? "SERVICIO" : "SERVICE"}</div>
+        <div class="service-icon"><img src={branches} alt=""></div>
+        <h3 class="service-title">{spanish ? "Integraciones y facturación" : "Event-driven architecture"}</h3>
         <p class="service-desc">
-          Async workflows, the Outbox Pattern, idempotency, retries that actually retry.
-          For when "send and pray" stops being good enough for your business.
+          {spanish
+            ? "Integro pagos y servicios de terceros. Preparo reintentos seguros para que un error de red no duplique un pedido o un cobro."
+            : 'Async workflows, the Outbox Pattern, idempotency, retries that actually retry. For when "send and pray" stops being good enough for your business.'}
         </p>
         <div class="service-tags">
           <span class="service-tag">Outbox Pattern</span>
@@ -46,13 +50,13 @@ import mouse from "../assets/svg/mouse.svg?url";
       </div>
 
       <div class="service">
-        <div class="service-num">03 / SERVICE</div>
-        <div class="service-icon"><img src={mouse} alt="Production firefighting"></div>
-        <h3 class="service-title">Production firefighting</h3>
+        <div class="service-num">03 / {spanish ? "SERVICIO" : "SERVICE"}</div>
+        <div class="service-icon"><img src={mouse} alt=""></div>
+        <h3 class="service-title">{spanish ? "Diagnóstico en producción" : "Production firefighting"}</h3>
         <p class="service-desc">
-          Race conditions, duplicate records, jobs failing silently, slow queries. I diagnose
-          the bugs nobody on your team has time to fix — and add the observability to catch
-          the next one.
+          {spanish
+            ? "Investigo consultas lentas, registros duplicados y tareas que fallan en silencio. Documento la causa y añado trazas para detectar el problema si reaparece."
+            : "Race conditions, duplicate records, jobs failing silently, slow queries. I diagnose the bugs nobody on your team has time to fix — and add the observability to catch the next one."}
         </p>
         <div class="service-tags">
           <span class="service-tag">OpenTelemetry</span>
@@ -61,9 +65,9 @@ import mouse from "../assets/svg/mouse.svg?url";
         </div>
       </div>
     </div>
-    <p class="services-spanish">
+    {!spanish && <p class="services-spanish">
       <a href="/programador-backend" hreflang="es" lang="es">Servicios de programación backend en español →</a>
-    </p>
+    </p>}
   </div>
 </section>
 

@@ -1,85 +1,80 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Services from "../components/Services.astro";
 import Footer from "../components/Footer.astro";
+import star from "../assets/svg/star.svg?url";
 
-const title = "Programador backend freelance en Honduras | David Martínez";
-const description = "David Martínez, programador backend freelance en Honduras. Desarrollo APIs con NestJS y TypeScript, integro pagos y corrijo fallos de producción para equipos SaaS.";
-const bookCall = "https://cal.com/davidmrtz/20-min-call";
+const title = "Programador backend freelance | David Martínez";
+const description = "Programador backend freelance para equipos SaaS. Desarrollo APIs con NestJS y TypeScript, integro pagos y diagnostico fallos en producción. Trabajo remoto en español e inglés.";
+
+const projects = [
+  {
+    title: "Cerebro",
+    context: "Auditorías web e integración con Google",
+    description: "Implementé auditorías para sitios externos, métricas de Google Search Console e inspección de URLs. Los equipos pueden guardar hallazgos y convertirlos en cambios concretos para su sitio.",
+    stack: ["TypeScript", "Convex", "Google Search Console"],
+  },
+  {
+    title: "GraphxSource",
+    context: "Pagos y facturación",
+    description: "Implementé la repetición de la respuesta original al reintentar el alta de un método de pago, validé la titularidad antes de borrar métodos y corregí la conciliación semanal de consumo.",
+    stack: ["NestJS", "TypeScript", "Idempotencia"],
+  },
+];
 ---
 
-<Layout title={title} description={description} language="es" keywords="" hasHeroPortrait={false}>
-  <nav slot="navigation" class="backend-nav" aria-label="Navegación principal">
-    <div class="container nav-inner">
-      <a class="logo" href="/">David Martínez<span>.</span></a>
-      <a href="/" lang="en" hreflang="en" aria-label="Portfolio in English">English</a>
-    </div>
-  </nav>
+<Layout title={title} description={description} language="es" keywords="">
+  <Header language="es" />
+  <Services language="es" />
 
-  <article class="container backend-page">
-    <header class="backend-intro">
-      <p class="backend-location">San Pedro Sula, Honduras · Trabajo remoto</p>
-      <h1>Programador backend <em>freelance</em> en Honduras</h1>
-      <p>Soy David Martínez. Desarrollo APIs, integraciones de pagos y procesos en segundo plano para equipos SaaS. Trabajo con NestJS, TypeScript, Node.js y PostgreSQL.</p>
-      <a href={bookCall} class="btn-primary">Agenda una llamada de 20 minutos</a>
-    </header>
-
-    <section aria-labelledby="servicios-backend">
-      <h2 id="servicios-backend">En qué te puedo ayudar</h2>
-      <div class="backend-services">
-        <div>
-          <h3>Desarrollo de APIs</h3>
-          <p>Diseño e implemento APIs REST y GraphQL. Si tu producto atiende a varias empresas, defino el acceso a los datos de cada una y pruebo esos límites.</p>
-        </div>
-        <div>
-          <h3>Integraciones y facturación</h3>
-          <p>Integro servicios de terceros y preparo reintentos seguros para que un error de red no duplique un pedido o un cobro.</p>
-        </div>
-        <div>
-          <h3>Diagnóstico en producción</h3>
-          <p>Investigo consultas lentas, registros duplicados y tareas que fallan en silencio. Documento la causa y dejo pruebas para detectar el problema si reaparece.</p>
-        </div>
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-label">
+        <span class="section-star" style={`--star-image: url(${star})`}></span>
+        [ 02 ] Proyectos
       </div>
-    </section>
+      <h2 class="section-title">Backends que ya <em>construí.</em></h2>
+      <div class="services-grid">
+        {projects.map(({ title, context, description, stack }) => (
+          <article class="service">
+            <p class="service-num">{context}</p>
+            <h3 class="service-title">{title}</h3>
+            <p class="service-desc">{description}</p>
+            <div class="service-tags">
+              {stack.map((label) => <span class="service-tag">{label}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+      <a href="/#projects" class="btn-secondary related-work">Ver los casos de estudio en inglés →</a>
+    </div>
+  </section>
 
-    <section aria-labelledby="proyectos-backend">
-      <h2 id="proyectos-backend">Proyectos</h2>
-      <dl class="backend-projects">
-        <div>
-          <dt>Cerebro</dt>
-          <dd>Implementé auditorías para sitios externos, métricas de Google Search Console e inspección de URLs. Los equipos pueden guardar los hallazgos y convertirlos en cambios concretos para su sitio.</dd>
-        </div>
-        <div>
-          <dt>GraphxSource</dt>
-          <dd>Implementé la repetición de la respuesta original al reintentar el alta de un método de pago, validé la titularidad antes de borrar métodos y corregí cómo se concilia el consumo semanal.</dd>
-        </div>
-      </dl>
-      <a class="backend-link" href="/#projects" hreflang="en">Ver los casos de estudio en inglés</a>
-    </section>
-
-    <section aria-labelledby="contacto-backend" class="backend-contact">
-      <h2 id="contacto-backend">Cuéntame qué necesitas resolver</h2>
-      <p>En la primera llamada revisamos el estado de tu backend, el problema que quieres resolver y cómo comprobar que el cambio funciona. Trabajo en español e inglés.</p>
-      <a class="backend-link" href="mailto:contact@davidmrtz.me">contact@davidmrtz.me</a>
-    </section>
-  </article>
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-label">[ 03 ] Contacto</div>
+      <h2 class="section-title">Cuéntame qué necesitas <em>resolver.</em></h2>
+      <p class="contact-copy">En la primera llamada revisamos tu backend, el problema que quieres resolver y cómo comprobar que el cambio funciona.</p>
+      <div class="hero-cta-row">
+        <a href="https://cal.com/davidmrtz/20-min-call" class="btn-primary">Agenda una llamada →</a>
+        <a href="mailto:contact@davidmrtz.me" class="btn-secondary">Escríbeme por correo</a>
+      </div>
+    </div>
+  </section>
 
   <Footer />
 </Layout>
 
 <style>
-  .backend-nav { position: static; }
-  .backend-nav .logo { white-space: nowrap; }
-  .backend-page { display: grid; gap: clamp(40px, 7vw, 76px); padding-block: clamp(48px, 8vw, 100px); }
-  .backend-intro { max-width: 760px; }
-  .backend-location { color: var(--ink-soft); font: 0.8rem "JetBrains Mono", monospace; }
-  h1, h2 { font-family: "Fraunces", serif; font-weight: 500; }
-  h1 { font-size: clamp(2.25rem, 6vw, 4.75rem); line-height: 1.05; margin: 14px 0 20px; }
-  h1 em { color: var(--accent-ink); }
-  h2 { font-size: clamp(1.65rem, 3.4vw, 2.6rem); line-height: 1.16; margin-bottom: 18px; }
-  h3, dt { font-weight: 600; margin-bottom: 6px; }
-  .backend-intro > p:not(.backend-location), .backend-contact p { max-width: 62ch; }
-  .backend-intro .btn-primary { display: inline-block; margin-top: 24px; }
-  .backend-services, .backend-projects { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
-  .backend-services > div, .backend-projects > div { border: 1px solid var(--line); border-radius: 8px; padding: 18px; background: var(--paper); }
-  .backend-link { display: inline-block; margin-top: 14px; color: var(--accent-ink); text-decoration: underline; text-underline-offset: 0.2em; }
+  #projects .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 900px) { #projects .services-grid { grid-template-columns: 1fr; } }
+  .section-star {
+    width: 14px;
+    height: 18px;
+    background: var(--accent);
+    mask: var(--star-image) center / contain no-repeat;
+  }
+  .related-work { display: inline-block; margin-top: 24px; }
+  .contact-copy { max-width: 58ch; margin-bottom: 24px; }
 </style>

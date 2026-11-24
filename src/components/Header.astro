@@ -5,26 +5,35 @@ import next from "../assets/svg/next.svg?url";
 import computer from "../assets/svg/computer.svg?url";
 
 const me = "/me.svg"; // Public asset
+const { language = "en" } = Astro.props;
+const spanish = language === "es";
 ---
 
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
       <div class="hero-left">
-        <div class="hero-tag">Available for new projects</div>
+        <div class="hero-tag">{spanish ? "Disponible para proyectos remotos" : "Available for new projects"}</div>
         <h1>
-          Backend engineer<br>
-          who builds <span class="sr-only">distributed </span>systems<br>
-          that <em>don't break</em> <span class="underline">in production.</span>
+          {spanish ? <>
+            Programador backend<br>
+            <em>freelance</em> para<br>
+            <span class="underline">equipos SaaS.</span>
+          </> : <>
+            Backend engineer<br>
+            who builds <span class="sr-only">distributed </span>systems<br>
+            that <em>don't break</em> <span class="underline">in production.</span>
+          </>}
         </h1>
         <p class="hero-sub">
-          I build TypeScript backends for SaaS teams, with a focus on reliable APIs,
-          billing workflows, and search integrations.
+          {spanish
+            ? "Soy David Martínez. Desarrollo APIs con NestJS y TypeScript, integro pagos y resuelvo fallos en producción. Trabajo en remoto, en español e inglés."
+            : "I build TypeScript backends for SaaS teams, with a focus on reliable APIs, billing workflows, and search integrations."}
         </p>
         <div class="hero-cta-row">
-          <a href="https://cal.com/davidmrtz/20-min-call" target="_blank" class="btn-primary">Book a free 20-min call →</a>
+          <a href="https://cal.com/davidmrtz/20-min-call" target="_blank" class="btn-primary">{spanish ? "Agenda una llamada de 20 min →" : "Book a free 20-min call →"}</a>
           <a href="#projects" class="btn-secondary">
-            See selected work
+            {spanish ? "Ver proyectos" : "See selected work"}
           </a>
         </div>
       </div>
@@ -32,7 +41,7 @@ const me = "/me.svg"; // Public asset
         <div class="hero-portrait-badge">Hola, soy David</div>
           <img
             src={me}
-            alt="David Martínez — Backend Engineer"
+            alt={spanish ? "David Martínez, programador backend" : "David Martínez — Backend Engineer"}
             width="480"
             height="600"
             loading="eager"
@@ -45,20 +54,20 @@ const me = "/me.svg"; // Public asset
 
     <div class="hero-stats">
       <div class="stat stat-circled">
-        <div class="stat-num"><em>Search</em></div>
-        <div class="stat-label">Audits and Search Console integrations</div>
+        <div class="stat-num"><em>{spanish ? "Búsqueda" : "Search"}</em></div>
+        <div class="stat-label">{spanish ? "Auditorías e integración con Search Console" : "Audits and Search Console integrations"}</div>
       </div>
       <div class="stat">
-        <div class="stat-num"><em>Billing</em></div>
-        <div class="stat-label">Idempotent payments and usage reconciliation</div>
+        <div class="stat-num"><em>{spanish ? "Pagos" : "Billing"}</em></div>
+        <div class="stat-label">{spanish ? "Reintentos seguros y conciliación de consumo" : "Idempotent payments and usage reconciliation"}</div>
       </div>
       <div class="stat">
         <div class="stat-num"><em>Async</em></div>
-        <div class="stat-label">Event-driven workflows and retries</div>
+        <div class="stat-label">{spanish ? "Procesos en segundo plano y reintentos" : "Event-driven workflows and retries"}</div>
       </div>
       <div class="stat">
         <div class="stat-num"><em>4+</em></div>
-        <div class="stat-label">Years building distributed systems</div>
+        <div class="stat-label">{spanish ? "Años desarrollando sistemas distribuidos" : "Years building distributed systems"}</div>
       </div>
     </div>
   </div>

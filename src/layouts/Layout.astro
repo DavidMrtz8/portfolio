@@ -277,7 +277,7 @@ const websiteSchema = {
 		<script type="application/ld+json" set:html={JSON.stringify(projectsSchema)} />
 	</head>
 	<body>
-		<slot name="navigation"><Navbar /></slot>
+		<slot name="navigation"><Navbar language={language} /></slot>
 		<main>
 			<slot />
 		</main>
