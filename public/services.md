@@ -12,7 +12,7 @@
 ## Service 02 — Event-driven architecture
 
 - **What I build**: Async workflows, Outbox Pattern, idempotency, retries with exponential backoff.
-- **Stack**: AWS SQS, Outbox Pattern, Redis, Lambda.
+- **Stack and patterns**: Redis, transactional outboxes, idempotency.
 - **What you get**: Reliable async pipelines, observable retries, transactional event persistence.
 - **Engagement**: Hourly or fixed-scope. Contact me for rate.
 

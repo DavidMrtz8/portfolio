@@ -4,11 +4,11 @@ import star from "../assets/svg/star.svg?url";
 const faqs = [
   {
     q: "What kind of backend work do I specialize in?",
-    a: "I build production-grade backend systems for SaaS: NestJS and TypeScript APIs (REST and GraphQL), event-driven architectures with the Outbox Pattern, AWS infrastructure (SQS, Lambda, RDS, S3), PostgreSQL, Redis, and observability with OpenTelemetry. My focus is reliability, idempotency, and graceful failure — the engineering work that decides whether a SaaS scales past its first 1000 customers."
+    a: "I build REST and GraphQL APIs with NestJS and TypeScript, plus background workflows and external integrations for SaaS. I work with PostgreSQL, Redis and OpenTelemetry, with a focus on safe retries, tenant boundaries and observability."
   },
   {
     q: "How many years of experience do I have?",
-    a: "4+ years building and shipping distributed systems to production. Recent work includes a multi-tenant notification system I built with 99.9% event delivery reliability and a fault-tolerant order processing system that reduced processing failures by 40%."
+    a: "I have 4+ years building and shipping distributed systems. At Cerebro, I built external SEO audits and integrated Google Search Console. At GraphxSource, I worked on billing retries, subscriber ownership checks and quota reconciliation."
   },
   {
     q: "Am I available for freelance or contract work?",
@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: "What is the Outbox Pattern and why do I use it?",
-    a: "The Outbox Pattern is a reliability technique for distributed systems: I persist events to a database table in the same transaction as the business write, then dispatch them asynchronously from a separate process. This guarantees events are never lost on transient failures, network blips, or service restarts. It's the difference between 'send and pray' and 99.9% event delivery in production."
+    a: "I persist events to a database table in the same transaction as the business write, then dispatch them asynchronously. That lets a worker retry delivery after a transient failure. Consumers use idempotency to handle duplicates safely."
   },
   {
     q: "How do I approach observability?",
@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: "What technologies do I use most?",
-    a: "Daily: NestJS, TypeScript, Node.js, PostgreSQL, AWS SQS, Redis, Docker. Regularly: GraphQL, TypeORM, Lambda, S3, RDS, OpenTelemetry, Jest. Architecture patterns I use most: event-driven, microservices, Outbox Pattern, multi-tenant."
+    a: "I work with TypeScript, NestJS, Node.js, PostgreSQL, Convex, Redis and Docker. My backend work also uses GraphQL, TypeORM, OpenTelemetry and Jest, with patterns such as event-driven workflows, transactional outboxes and tenant isolation."
   },
   {
     q: "How do we start working together?",

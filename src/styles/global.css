@@ -522,7 +522,7 @@ nav {
   color: var(--ink);
 }
 
-/* Mockup 1: Outbox pipeline */
+/* Mockup 1: SEO workflow */
 .pipe-flow {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -680,7 +680,6 @@ nav {
     width: 100%;
   }
   .case-title { font-size: 30px; }
-  .results-grid { padding: 20px; }
 }
 .case-tag {
   font-family: 'JetBrains Mono', monospace;

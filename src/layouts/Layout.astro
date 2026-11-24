@@ -4,17 +4,17 @@ import Navbar from "../components/Navbar.astro";
 import Analytics from "@vercel/analytics/astro";
 
 const {
-	title = "David Martínez — Backend Engineer | NestJS, AWS, TypeScript",
-	description = "Backend engineer building reliable distributed systems. NestJS, TypeScript, AWS. Helping SaaS teams ship backends that don't break in production.",
+	title = "David Martínez — Backend Engineer | NestJS & TypeScript",
+	description = "Backend engineer building TypeScript APIs, billing workflows, and search integrations for SaaS. Selected work from Cerebro and GraphxSource.",
 	image = "/og-image.png",
-	keywords = "backend engineer, NestJS developer, TypeScript developer, AWS, distributed systems, event-driven architecture, Outbox Pattern, SaaS backend, PostgreSQL, Node.js, freelance backend engineer, Honduras backend engineer",
+	keywords = "backend engineer, NestJS developer, TypeScript developer, distributed systems, event-driven architecture, SaaS backend, billing, idempotency, Search Console, PostgreSQL, Node.js, freelance backend engineer, Honduras backend engineer",
 	noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString().replace(/\/$/, "") || Astro.site?.toString();
 const ogImage = new URL(image, Astro.site).toString();
 
-const lastModified = "2026-05-11";
+const lastModified = "2026-11-24";
 
 const personSchema = {
 	"@context": "https://schema.org",
@@ -45,9 +45,9 @@ const personSchema = {
 		"TypeScript",
 		"Node.js",
 		"PostgreSQL",
-		"AWS",
-		"AWS SQS",
-		"AWS Lambda",
+		"Convex",
+		"Google Search Console",
+		"Billing Reconciliation",
 		"Redis",
 		"Docker",
 		"Distributed Systems",
@@ -68,7 +68,7 @@ const personSchema = {
 		"@type": "Occupation",
 		"name": "Backend Engineer",
 		"occupationalCategory": "15-1252.00",
-		"skills": "NestJS, TypeScript, Node.js, PostgreSQL, AWS, event-driven architecture, distributed systems"
+		"skills": "NestJS, TypeScript, Node.js, PostgreSQL, Convex, event-driven architecture, distributed systems"
 	}
 };
 
@@ -108,7 +108,7 @@ const professionalServiceSchema = {
 				"itemOffered": {
 					"@type": "Service",
 					"name": "Event-driven architecture",
-					"description": "Async workflows, Outbox Pattern, idempotency, retries with exponential backoff. AWS SQS, Redis, Lambda."
+					"description": "Async workflows, transactional outboxes, idempotency, and retries with exponential backoff."
 				}
 			},
 			{
@@ -133,11 +133,11 @@ const projectsSchema = {
 			"position": 1,
 			"item": {
 				"@type": "CreativeWork",
-				"name": "Distributed Notification System with the Outbox Pattern",
-				"about": "Multi-tenant SaaS event delivery using Outbox Pattern, AWS SQS, retries with exponential backoff, and distributed tracing.",
+				"name": "Cerebro — External SEO and Search Console",
+				"about": "External website audits, Google Search Console integration, URL indexing diagnostics, and cited competitor research.",
 				"author": { "@id": "https://davidmrtz.me/#person" },
-				"dateCreated": "2025",
-				"keywords": "NestJS, PostgreSQL, AWS SQS, Outbox Pattern, distributed systems"
+				"dateCreated": "2026",
+				"keywords": "TypeScript, Convex, Google Search Console, Claude"
 			}
 		},
 		{
@@ -145,11 +145,11 @@ const projectsSchema = {
 			"position": 2,
 			"item": {
 				"@type": "CreativeWork",
-				"name": "Fault-Tolerant Order Processing",
-				"about": "High-volume transactional system with idempotency, partial indexes, pessimistic locking, and server-side billing validation.",
+				"name": "GraphxSource — Reliable Orders and Billing",
+				"about": "Payment method response replay, subscriber-scoped deletions, weekly quota reconciliation, and order idempotency conflict diagnostics.",
 				"author": { "@id": "https://davidmrtz.me/#person" },
-				"dateCreated": "2025",
-				"keywords": "TypeScript, PostgreSQL, idempotency, locking"
+				"dateCreated": "2026",
+				"keywords": "NestJS, TypeScript, idempotency, billing reconciliation"
 			}
 		},
 		{
@@ -158,10 +158,10 @@ const projectsSchema = {
 			"item": {
 				"@type": "CreativeWork",
 				"name": "iOBOT — Omnichannel CRM Backend",
-				"about": "B2B SaaS unifying WhatsApp, Instagram, Messenger into a single CRM pipeline. Event-driven workflows on AWS, Socket.io real-time, OpenAI chatbot layer.",
+				"about": "B2B SaaS unifying WhatsApp, Instagram and Messenger into a single CRM pipeline. Event-driven workflows, real-time delivery with Socket.io, and an OpenAI chatbot layer.",
 				"author": { "@id": "https://davidmrtz.me/#person" },
 				"dateCreated": "2024",
-				"keywords": "Node.js, AWS SQS, Socket.io, OpenAI API"
+				"keywords": "Node.js, event-driven workflows, Socket.io, OpenAI API"
 			}
 		}
 	]

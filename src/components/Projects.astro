@@ -8,33 +8,33 @@ import resource13 from "../assets/svg/resource13.svg?url";
 const projects = [
   {
     case: "01",
-    year: "2025",
-    title: "Distributed Notification System with the Outbox Pattern",
-    context: "Multi-tenant SaaS · GraphxSource",
-    problem: "Critical events were being lost in transit. Silent failures, no traceability, customers complaining.",
-    built: "Outbox Pattern with async dispatcher, transactional persistence, retries with exponential backoff, and distributed tracing.",
+    year: "2026",
+    title: "Cerebro — External SEO and Search Console",
+    context: "Multi-tenant SaaS · Website analytics",
+    problem: "Teams needed to audit websites hosted elsewhere and bring search performance and indexing diagnostics into the same workspace.",
+    built: "I built external page audits, linked verified Search Console properties, and added URL indexing checks and saved research. Claude discovers competitors and proposes content ideas using cited public evidence.",
     results: [
-      { num: "99.9%", label: "Event delivery reliability" },
-      { num: "0", label: "Silent failures in critical flows" }
+      { num: "Audits", label: "Technical and indexing checks" },
+      { num: "History", label: "Saved findings and research" }
     ],
-    stack: ["NestJS", "PostgreSQL", "AWS SQS", "Outbox Pattern"],
-    mockupType: "outbox",
-    url: "outbox-dispatcher · live"
+    stack: ["TypeScript", "Convex", "Google Search Console", "Claude"],
+    mockupType: "seo",
+    url: "Cerebro · External SEO"
   },
   {
     case: "02",
-    year: "2025",
-    title: "Fault-Tolerant Order Processing",
-    context: "High-volume transactional system · GraphxSource",
-    problem: "Orders failing on transient errors. Race conditions. Engineers manually reprocessing every week.",
-    built: "Retry system with idempotency, partial indexes, pessimistic locking, and server-side billing validation.",
+    year: "2026",
+    title: "GraphxSource — Reliable Orders and Billing",
+    context: "NestJS backend · Orders and payments",
+    problem: "Payment method retries needed a consistent response, billing changes needed to respect subscriber ownership, and weekly quota reconciliation needed to exclude provisional reservations.",
+    built: "I implemented replay of the original payment method creation response, enforced subscriber ownership on deletion, corrected weekly quota reconciliation, and improved order idempotency conflict logging.",
     results: [
-      { num: "−40%", label: "Order processing failures" },
-      { num: "~0", label: "Duplicate records or corruption" }
+      { num: "Replay", label: "Original 201 response on retry" },
+      { num: "Scoped", label: "Subscriber ownership on deletion" }
     ],
-    stack: ["TypeScript", "PostgreSQL", "Idempotency", "Locking"],
+    stack: ["NestJS", "TypeScript", "Idempotency", "Reconciliation"],
     mockupType: "terminal",
-    url: "$ node order-worker.ts"
+    url: "GraphxSource · Billing request flow"
   },
   {
     case: "03",
@@ -42,12 +42,12 @@ const projects = [
     title: "iOBOT — Omnichannel CRM Backend",
     context: "B2B SaaS · Authcode",
     problem: "Unify WhatsApp, Instagram and Messenger into a single CRM pipeline, real-time, at scale.",
-    built: "Event-driven workflows on AWS, Socket.io for real-time, plus an OpenAI chatbot layer for repetitive flows.",
+    built: "Event-driven workflows, Socket.io for real-time delivery, and an OpenAI chatbot layer for repetitive flows.",
     results: [
       { num: "3 channels", label: "Unified backend pipeline" },
       { num: "Real-time", label: "Delivery across integrations" }
     ],
-    stack: ["Node.js", "AWS SQS", "Socket.io", "OpenAI API"],
+    stack: ["Node.js", "Event-driven", "Socket.io", "OpenAI API"],
     mockupType: "chat",
     url: "iOBOT inbox · unified"
   }
@@ -60,7 +60,7 @@ const projects = [
       <span class="label-star" style={`-webkit-mask-image: url(${star}); mask-image: url(${star});`}></span>
       [ 02 ] Selected work
     </div>
-    <h2 class="section-title">Problems solved, <em>measured</em> in production.</h2>
+    <h2 class="section-title">Selected <em>backend</em> engineering projects.</h2>
 
     {projects.map((project, index) => (
       <div class={`case-study ${index === 1 ? 'reverse' : ''}`}>
@@ -87,7 +87,7 @@ const projects = [
                   <div class="result-label">{result.label}</div>
                 </div>
               ))}
-              <img src={index === 0 ? resource4 : (index === 1 ? resource5 : resource13)} class="arrow-deco" alt="" style={index === 2 ? "width: 50px; bottom: -22px; right: -10px; transform: rotate(40deg);" : ""}>
+              <img src={index === 0 ? resource4 : (index === 1 ? resource5 : resource13)} class:list={["arrow-deco", { "arrow-deco-chat": index === 2 }]} alt="">
             </div>
 
             <div class="case-stack">
@@ -104,41 +104,37 @@ const projects = [
             <span class="url">{project.url}</span>
           </div>
           <div class="mockup-body">
-            {project.mockupType === 'outbox' && (
+            {project.mockupType === 'seo' && (
               <div class="pipe-flow">
                 <div class="pipe-col">
-                  <div class="pipe-col-label">// outbox</div>
-                  <div class="pipe-event"><span class="ev-dot"></span>order.created</div>
-                  <div class="pipe-event"><span class="ev-dot"></span>billing.charged</div>
-                  <div class="pipe-event"><span class="ev-dot"></span>user.invited</div>
+                  <div class="pipe-col-label">// collect</div>
+                  <div class="pipe-event"><span class="ev-dot"></span>Public pages</div>
+                  <div class="pipe-event"><span class="ev-dot"></span>Search data</div>
+                  <div class="pipe-event"><span class="ev-dot"></span>Competitors</div>
                 </div>
                 <div class="pipe-col">
-                  <div class="pipe-col-label">// queue</div>
-                  <div class="pipe-event"><span class="ev-dot"></span>SQS → retry</div>
-                  <div class="pipe-event"><span class="ev-dot"></span>SQS → ack</div>
-                  <div class="pipe-event"><span class="ev-dot"></span>SQS → ack</div>
+                  <div class="pipe-col-label">// analyze</div>
+                  <div class="pipe-event"><span class="ev-dot"></span>Technical audit</div>
+                  <div class="pipe-event"><span class="ev-dot"></span>URL inspection</div>
+                  <div class="pipe-event"><span class="ev-dot"></span>Claude research</div>
                 </div>
                 <div class="pipe-col">
-                  <div class="pipe-col-label">// delivered</div>
-                  <div class="pipe-event delivered"><span class="ev-dot"></span>✓ webhook</div>
-                  <div class="pipe-event delivered"><span class="ev-dot"></span>✓ stripe</div>
-                  <div class="pipe-event delivered"><span class="ev-dot"></span>✓ sendgrid</div>
+                  <div class="pipe-col-label">// review</div>
+                  <div class="pipe-event delivered"><span class="ev-dot"></span>✓ History</div>
+                  <div class="pipe-event delivered"><span class="ev-dot"></span>✓ Suggested fixes</div>
+                  <div class="pipe-event delivered"><span class="ev-dot"></span>✓ Content plan</div>
                 </div>
               </div>
             )}
             
             {project.mockupType === 'terminal' && (
               <div class="terminal-content">
-                <span class="term-line"><span class="muted">[10:42:01]</span> → order #4821 received</span>
-                <span class="term-line"><span class="muted">[10:42:01]</span> lock acquired · <span class="ok">FOR UPDATE</span></span>
-                <span class="term-line"><span class="muted">[10:42:01]</span> billing.validate → <span class="warn">timeout</span></span>
-                <span class="term-line"><span class="muted">[10:42:02]</span> retry 1/3 · backoff 200ms</span>
-                <span class="term-line"><span class="muted">[10:42:02]</span> billing.validate → <span class="ok">200 OK</span></span>
-                <span class="term-line"><span class="muted">[10:42:02]</span> idempotency_key matched · skip dup</span>
-                <span class="term-line"><span class="muted">[10:42:02]</span> persist → <span class="ok">order.confirmed</span></span>
-                <span class="term-line"><span class="muted">[10:42:02]</span> emit → outbox · webhook queued</span>
-                <span class="term-line"><span class="muted">[10:42:02]</span> <span class="ok">✓ done</span> · 124ms</span>
-                <span class="term-line"><span class="muted">[10:42:03]</span> ready for next job<span class="term-cursor"></span></span>
+                <span class="term-line"><span class="muted">[billing]</span> create payment method → <span class="ok">201</span></span>
+                <span class="term-line"><span class="muted">[billing]</span> request retried</span>
+                <span class="term-line"><span class="muted">[billing]</span> idempotency key matched</span>
+                <span class="term-line"><span class="muted">[billing]</span> original response → <span class="ok">201 replayed</span></span>
+                <span class="term-line"><span class="muted">[billing]</span> deletion checked against ownership</span>
+                <span class="term-line"><span class="muted">[quota]</span> <span class="ok">usage reconciled</span><span class="term-cursor"></span></span>
               </div>
             )}
 
@@ -159,6 +155,24 @@ const projects = [
 </section>
 
 <style>
+  .results-grid .arrow-deco-chat {
+    width: 50px;
+    bottom: -22px;
+    right: -10px;
+    transform: rotate(40deg);
+  }
+  @media (max-width: 900px) {
+    .results-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      padding: 20px;
+    }
+    .result-num { font-size: clamp(22px, 7vw, 36px); }
+    .results-grid .arrow-deco {
+      width: 38px;
+      right: 0;
+      bottom: -18px;
+    }
+  }
   .label-star {
     width: 14px;
     height: 18px;
